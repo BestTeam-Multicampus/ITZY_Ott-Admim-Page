@@ -25,18 +25,35 @@ public class MemberController {
 	@RequestMapping(value = "login.do", method = RequestMethod.GET)
 	public String login() {
 //		System.out.println("MemberController login " + new Date());
-		return "login";
+		return "login/login";
 	}
 	
 	@RequestMapping(value = "regi.do", method = RequestMethod.GET)
 	public String regi() {
 //		System.out.println("MemberController regi " + new Date());
-		return "regi";
+		return "login/regi";
 	}
-	@RequestMapping(value = "admin.do", method = RequestMethod.GET)
-	public String admin() {
-//		System.out.println("MemberController regi " + new Date());
-		return "admin";
+	@RequestMapping(value = "main.do", method = RequestMethod.GET)
+	public String main() {
+//		System.out.println("MemberController main " + new Date());
+		return "main";
+	}
+	@RequestMapping(value = "members.do", method = RequestMethod.GET)
+	public String members() {
+//		System.out.println("MemberController members " + new Date());
+		return "members";
+	}
+	
+	@RequestMapping(value = "bulletins.do", method = RequestMethod.GET)
+	public String bulletins() {
+//		System.out.println("MemberController bulletins " + new Date());
+		return "bulletins";
+	}
+	
+	@RequestMapping(value = "recruits.do", method = RequestMethod.GET)
+	public String recruits() {
+//		System.out.println("MemberController recruits " + new Date());
+		return "recruits";
 	}
 	
 	@ResponseBody
@@ -74,7 +91,7 @@ public class MemberController {
 		String msg ="";
 		if (mem != null) {
 			req.getSession().setAttribute("login", mem);
-			req.getSession().setMaxInactiveInterval(7200);
+			req.getSession().setMaxInactiveInterval(1800);//세션 기본 30분
 			msg = "LOGIN_OK"; 
 			System.out.println();
 		}else {

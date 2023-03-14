@@ -38,7 +38,7 @@ if(login != null && !login.equals("")){
 		%>
 		<script type="text/javascript">
 		alert("로그인 되었습니다");
-		location.href = "admin.do";
+		location.href = "main.do";
 		</script>
 		<%
 	}else{

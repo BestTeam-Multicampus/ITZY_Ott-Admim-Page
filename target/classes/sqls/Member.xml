@@ -5,7 +5,7 @@
 <mapper namespace="Member">
 	
 <select id="allMember" resultType="ITzy.admin.dto.MemberDto">
-		select id, pwd, name, email, auth
+		select id, name, email, auth
 		from member
 	</select>
 
@@ -16,8 +16,8 @@
 	</select>
 
 	<insert id="addmember" parameterType="ITzy.admin.dto.MemberDto">
-		insert into member(id, pwd, name, email, auth)
-		values(#{id}, #{pwd}, #{name}, #{email}, 0) <!-- 관리자 0 -->
+		insert into member(id,name, company, pwd, email, contact, auth)
+		values(#{id},#{name}, #{company}, #{pwd}, #{email}, #{contact},0) <!-- 관리자 0 -->
 	</insert>
 
 	<select id="login" parameterType="ITzy.admin.dto.MemberDto" resultType="ITzy.admin.dto.MemberDto">
@@ -26,10 +26,5 @@
 		where id=#{id} and pwd=#{pwd} and auth=0 <!-- 관리자 0 -->
 	</select>
 	
-	<select id="loginDto" parameterType="ITzy.admin.dto.MemberDto" resultType="ITzy.admin.dto.MemberDto">
-		select id, auth
-		from member
-		where id=#{id} and pwd=#{pwd} and auth=0 <!-- 관리자 0 -->
-	</select>
 	
 </mapper>
