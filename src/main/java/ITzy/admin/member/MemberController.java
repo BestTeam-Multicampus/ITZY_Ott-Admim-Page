@@ -39,8 +39,10 @@ public class MemberController {
 		return "main";
 	}
 	@RequestMapping(value = "members.do", method = RequestMethod.GET)
-	public String members() {
+	public String members(Model model) {
 //		System.out.println("MemberController members " + new Date());
+		List<MemberDto> list = service.allMember();
+		model.addAttribute("allmem", list);
 		return "members";
 	}
 	

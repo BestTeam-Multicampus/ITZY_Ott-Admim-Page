@@ -5,8 +5,9 @@
 <mapper namespace="Member">
 	
 <select id="allMember" resultType="ITzy.admin.dto.MemberDto">
-		select id, name, email, auth
+		select id, name, email,company, contact, auth
 		from member
+		order by id asc
 	</select>
 
 	<select id="idcheck" parameterType="java.lang.String" resultType="Integer">

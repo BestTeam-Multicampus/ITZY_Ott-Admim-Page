@@ -24,7 +24,7 @@
 
 <!-- main -->
 <tr>
-	<td align="left" valign="top" style="background-color: rgb(204,204,204); width: 20%">
+	<td align="left" valign="top" style="background-color: rgb(204,204,204); width: 10%">
 		<tiles:insertAttribute name="menu"/>
 	</td>
 	<td>
