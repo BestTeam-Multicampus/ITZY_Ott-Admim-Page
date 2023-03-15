@@ -10,10 +10,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 body {
-	top-margin: 0;
-	bottom-margin: 0;
-	left-margin: 0;
-	right-margin: 0
+	margin: 0;
 }
 
 h1, h2, h3 {
@@ -39,8 +36,9 @@ h1, h2, h3 {
 .content {
 	position: fixed;
 	margin-top: 100px;
-	margin-left: 250px;
-	top: 50px;
+	margin-left: 200px;
+	top: 20px;
+	left:20px;
 	height: 100vh;
 }
 </style>
