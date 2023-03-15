@@ -21,12 +21,15 @@ h1, h2, h3 {
 }
 
 .header {
+	position: fixed;
 	width: 100vw;
 	height: 100px;
 	background: pink;
 }
 
 .menu {
+	position: fixed;
+	margin-top: 100px;
 	float: left;
 	height: 100vh;
 	width: 200px;
@@ -34,9 +37,11 @@ h1, h2, h3 {
 }
 
 .content {
-	margin-left: 200px;
+	position: fixed;
+	margin-top: 100px;
+	margin-left: 250px;
+	top: 50px;
 	height: 100vh;
-	background-color: yellow;
 }
 </style>
 </head>
