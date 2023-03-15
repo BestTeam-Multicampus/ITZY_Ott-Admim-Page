@@ -36,8 +36,8 @@
 }
 
 .popUpdate>article {
-	width: 350px;
-	height: 350px;
+	width: 500px;
+	height: 400px;
 	position: relative;
 	z-index: 2;
 	background: white;
@@ -46,13 +46,14 @@
 	cursor: pointer;
 	text-align: center;
 }
+.black { background:rgba(0,0,0,0.6); }
 </style>
 <body>
 
 	<%
 List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 %>
-	<h1>멤버조회</h1>
+	<h1>회원 조회</h1>
 
 
 	<div class="tableWrapper">
@@ -127,19 +128,19 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				<h2>아이디 : <%= dto.getId() %> 님</h2>				
 				<br>
 				<form action="">					
-					이름 변경 : <input name="name" type="text" placeholder="변경할 이름"> 
-					<input type="submit" value="변경">
+					이름 변경 : <input type="text" id=name<%= s %> name=name placeholder="변경할 이름"> 
+					<input type="button"value="변경">
 				</form>	
 				
 				<form action="">	
-					<br> email 변경 : <input type="text" id="email" name="email" placeholder="변경할 email">
-					<input type="submit" value="변경">
+					<br> email 변경 : <input type="text" id=email<%= s %> name=email placeholder="변경할 email">
+					<input type="button" value="변경">
 				</form>	
 				
 				
 				<form action="">	
-					<br> 연락처 변경 : <input type="text" id="contact" name="contact"  maxlength="13" placeholder="숫자만 입력" onkeyup="chk_tel(this.value,'contact')">					
-					<input type="submit" value="변경">
+					<br> 연락처 변경 : <input type="text" id=contact<%= s %> name=contact  maxlength=13 placeholder="숫자만 입력" onkeyup="chk_tel(this.value,'contact<%= s %>')">					
+					<input type="button"  value="변경">
 				</form>	
 				
 				<br>	
