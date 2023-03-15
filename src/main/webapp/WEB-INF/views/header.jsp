@@ -26,11 +26,6 @@ if (login == null) {
 <button id="logoutBtn">로그아웃</button>
 <h3>접속한 관리자 아이디 : <%= login.getId()+" 이름 : "+login.getName()%></h3>
 
-
-
-
-
-
 <script type="text/javascript">
 
 $(function() {
