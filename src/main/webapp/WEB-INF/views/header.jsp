@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <%@page import="ITzy.admin.dto.MemberDto"%>
     
 <%
@@ -22,16 +22,20 @@ if (login == null) {
 <title>Insert title here</title>
 </head>
 <body>
-<h1>header</h1> 
-<button id="logoutBtn">로그아웃</button>
-<h3>접속한 관리자 아이디 : <%= login.getId()+" 이름 : "+login.getName()%></h3>
+<p>header</p> 
+<input type="button" id="logoutBtn" value="로그아웃">
+<p>접속한 관리자 아이디 : <%= login.getId()+" 이름 : "+login.getName()%></p>
 
 <script type="text/javascript">
 
 $(function() {
-	$("#logoutBtn").click
-});
+	
+	$("#logoutBtn").click(function() {
 
+		session.removeAttribute("login");
+		location.href = "login.do";
+	});
+});
 
 </script>
 </body>

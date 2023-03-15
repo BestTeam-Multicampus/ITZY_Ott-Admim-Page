@@ -17,11 +17,20 @@ h1, h2, h3 {
 	margin: 0;
 }
 
+.logo {
+	position: fixed;
+	background: pink;
+	width: 100px;
+	float: left;
+	height: 100px;
+}
+
 .header {
 	position: fixed;
 	width: 100vw;
 	height: 100px;
-	background: pink;
+	margin-left: 100px;
+	background: #F5DEB3;
 }
 
 .menu {
@@ -30,7 +39,7 @@ h1, h2, h3 {
 	float: left;
 	height: 100vh;
 	width: 200px;
-	background-color: gray;
+	/* background-color: gray; */
 }
 
 .content {
@@ -38,7 +47,7 @@ h1, h2, h3 {
 	margin-top: 100px;
 	margin-left: 200px;
 	top: 20px;
-	left:20px;
+	left: 20px;
 	height: 100vh;
 }
 </style>
@@ -47,6 +56,9 @@ h1, h2, h3 {
 
 	<!-- header -->
 
+	<div class="logo">
+		<tiles:insertAttribute name="logo" />
+	</div>
 	<div class="header">
 		<tiles:insertAttribute name="header" />
 	</div>
