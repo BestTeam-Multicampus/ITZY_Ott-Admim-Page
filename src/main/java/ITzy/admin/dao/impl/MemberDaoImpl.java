@@ -39,7 +39,6 @@ public class MemberDaoImpl implements MemberDao{
 		return session.insert(ns +"addmember", dto);
 	}
 
-
 	@Override
 	public MemberDto login(MemberDto dto) {
 		MemberDto mem = session.selectOne(ns + "login", dto);
@@ -48,5 +47,15 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public int modifyName(MemberDto dto) {
 		return session.update(ns + "modifyName", dto);
+	}
+	
+	@Override
+	public int modifyContact(MemberDto dto) {
+		return session.update(ns + "modifyContact", dto);
+	}
+	
+	@Override
+	public int modifyEmail(MemberDto dto) {
+		return session.update(ns + "modifyEmail", dto);
 	}
 }

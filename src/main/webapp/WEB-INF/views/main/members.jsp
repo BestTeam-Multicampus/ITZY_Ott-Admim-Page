@@ -136,19 +136,21 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				<form action= "modifyName.do" method="post">
 				<input type="hidden" name=id value="<%= dto.getId() %>">				
 				이름 변경 : <input type="text" id=name<%= s %> name=name placeholder="변경할 이름"> 
-				<button type="submit" id=nameBtn<%= s %> class="btn btn-secondary btn-sm"> 이름 변경</button>
+				<button type="submit" id=nameBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
 				</form>		
 			
-				
-				<br> email 변경 : <input type="text" id=email<%= s %> name=email placeholder="변경할 email">
-				<input type="button"  id=emailBtn<%= s %> value="변경" class="btn btn-secondary btn-sm">
+				<form action= "modifyEmail.do" method="post">
+				<input type="hidden" name=id value="<%= dto.getId() %>">	
+				<br> email 변경 : <input type="email" id=email<%= s %> name=email placeholder="변경할 email">
+				<button type="submit" id=emailBtn<%= s %>  class="btn btn-secondary btn-sm">변경</button>
+				</form>	
 			
 			
-			
-			
+				<form action= "modifyContact.do" method="post">
+				<input type="hidden" name=id value="<%= dto.getId() %>">	
 				<br> 연락처 변경 : <input type="text" id=contact<%= s %> name=contact  maxlength=13 placeholder="숫자만 입력" onkeyup="chk_tel(this.value,'contact<%= s %>')">					
-				<input type="button"  id=conBtn<%= s %> value="변경" class="btn btn-secondary btn-sm">
-				
+				<button type="submit" id=conBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
+				</form>	
 				
 				<br>	
 				<br>	

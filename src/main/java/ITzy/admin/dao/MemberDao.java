@@ -10,4 +10,6 @@ public interface MemberDao {
 	int addMember(MemberDto dto);
 	MemberDto login(MemberDto dto);
 	int modifyName(MemberDto dto);
+	int modifyEmail(MemberDto dto);
+	int modifyContact(MemberDto dto);
 }

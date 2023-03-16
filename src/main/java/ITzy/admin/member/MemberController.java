@@ -128,5 +128,33 @@ public class MemberController {
 		return "message";		
 	}	
 	
+	@RequestMapping(value = "modifyEmail.do", method = RequestMethod.POST)
+	public String modifyEmail(MemberDto dto,Model model) {
+//		System.out.println("MemberController modifyName " + new Date());
+		String msg ="";
+		boolean isS = service.modifyEmail(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("modifyEmail",msg);
+		return "message";		
+	}	
+	
+	@RequestMapping(value = "modifyContact.do", method = RequestMethod.POST)
+	public String modifyContact(MemberDto dto,Model model) {
+//		System.out.println("MemberController modifyName " + new Date());
+		String msg ="";
+		boolean isS = service.modifyContact(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("modifyContact",msg);
+		return "message";		
+	}	
+	
 	
 }

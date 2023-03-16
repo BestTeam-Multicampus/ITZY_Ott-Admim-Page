@@ -46,4 +46,14 @@ public class MemberServiceImpl implements MemberService{
 		int count = dao.modifyName(dto);
 		return count>0?true:false;
 	}
+	@Override
+	public boolean modifyContact(MemberDto dto) {
+		int count = dao.modifyContact(dto);
+		return count>0?true:false;
+	}
+	@Override
+	public boolean modifyEmail(MemberDto dto) {
+		int count = dao.modifyEmail(dto);
+		return count>0?true:false;
+	}
 }

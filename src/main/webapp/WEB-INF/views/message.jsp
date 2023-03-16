@@ -163,8 +163,6 @@ if(pdsupdate != null && !pdsupdate.equals("")){
 }
 
 //사용	
-
-
 String nameUpdate = (String)request.getAttribute("nameUpdate");
 if(nameUpdate != null && !nameUpdate.equals("")){
 	if(nameUpdate.equals("YES")){
@@ -183,7 +181,49 @@ if(nameUpdate != null && !nameUpdate.equals("")){
 <%
 	}
 }
+
+//사용	
+String modifyEmail = (String)request.getAttribute("modifyEmail");
+if(modifyEmail != null && !modifyEmail.equals("")){
+	if(modifyEmail.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("메일주소가 성공적으로 수정되었습니다");
+		location.href = "members.do";
+		</script>
+		<%
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("수정 실패");
+		location.href = "members.do";
+		</script>
+<%
+	}
+}
+
+//사용	
+String modifyContact = (String)request.getAttribute("modifyContact");
+if(modifyContact != null && !modifyContact.equals("")){
+	if(modifyContact.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("연락처가 성공적으로 수정되었습니다");
+		location.href = "members.do";
+		</script>
+		<%
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("수정 실패");
+		location.href = "members.do";
+		</script>
+<%
+	}
+}
 %>
+
+
 
 
 
