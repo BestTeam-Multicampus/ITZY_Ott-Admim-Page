@@ -50,7 +50,41 @@
 	cursor: pointer;
 	text-align: center;
 }
-.black { background:rgba(0,0,0,0.6); }
+.popState {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+.popState>article {
+	width: 500px;
+	height: 300px;
+	position: relative;
+	z-index: 2;
+	background: white;
+	box-shadow: 3px 3px 5px black;
+	margin: auto;
+	cursor: pointer;
+	text-align: center;
+}
+.black { background:rgba(0,0,0,0.3); }
+
+select{
+  border:1px solid #c8c8c8;
+  padding: 5px 10px;
+}
+option {
+  color:#111;
+}
+select:required:invalid {
+   color: #909090;
+}
+option[value=""][disabled] {
+  display:none
+}
 </style>
 <body>
 
@@ -66,6 +100,7 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 			<col width="80">
 			<col width="150">
 			<col width="150">
+			<col width="150">
 			<col width="100">
 			<col width="80">
 			<col width="80">
@@ -74,6 +109,7 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				<th>아이디</th>
 				<th>이름</th>
 				<th>이메일</th>
+				<th>소속회사</th>
 				<th>연락처</th>
 				<th>권한</th>
 				<th>수정</th>
@@ -87,9 +123,10 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 			String s = Integer.toString(i);
 		%>
 			<tr>
-				<td><%=dto.getId()%></td>
+				<td><b><%=dto.getId()%></b></td>
 				<td><%=dto.getName()%></td>
 				<td><%=dto.getEmail()%></td>
+				<td><%=dto.getCompany()%></td>
 				<td><%=dto.getContact()%></td>
 				<td>
 					<%
@@ -99,6 +136,8 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				%> 일반회원 <%
 				} else if (dto.getAuth() == 0) {
 				%> 관리자 <%
+				}else if (dto.getAuth() == 3) {
+				%><span style="color: red">활동정지</span> <%
 				}
 				%>
 
@@ -112,17 +151,10 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 					<button  class="btn btn-danger" id=stateUpdate<%= s %>>변경</button>
 				</td>
 
-				<%-- <td class="hidden-col">
+			
 
-				<div class="pop2">
-					<article>
-						<h1>회원 상태 변경</h1>
-						<h2><%=dto.toString()%></h2>
 
-						<button class="popclose">나가기</button>
-					</article>
-				</div>
-			</td> --%>
+		
 			</tr>
 
 			<div class=popUpdate id=popUpdate<%= s %>>
@@ -152,12 +184,47 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				<button type="submit" id=conBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
 				</form>	
 				
+				<br>		
 				<br>	
-				<br>	
-				<br>	
-				<br>	
-					<button class="btn btn-secondary btn-sm" id=popclose<%= s %>>창닫기</button>
+					<button class="btn btn-secondary btn-sm" id=popclose1<%= s %>>창닫기</button>
 				</article>
+			</div>	
+			<div class=popState id=popState<%=s%>>
+				<article>
+					<br>
+					<h1>회원 상태 변경</h1>
+					<h3>아이디 :<%=dto.getId()%> 님</h3>
+					<h2>현재 상태 :<%
+						if (dto.getAuth() == 1) {
+						%> 기업회원 <%
+						} else if (dto.getAuth() == 2) {
+						%> 일반회원 <%
+						} else if (dto.getAuth() == 0) {
+						%> 관리자 <%
+						}else if (dto.getAuth() == 3) {
+						%> 활동중지 <%
+						}
+						%></h2>
+					<br>
+					
+				<form action= "modifyAuth.do" method="post">
+				<input type="hidden" name=id value="<%= dto.getId() %>">
+					<select name=auth>
+					    <option value="" disabled selected>변경할 권한 선택</option>
+					    <option value=0>관리자</option>
+					    <option value=1>기업회원</option>
+					    <option value=2>일반회원</option>
+					    <option value=3>활동정지</option>
+					</select>	
+					<button type="submit" id=authBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
+					<br>
+					<br>			
+				</form>
+					<button class="btn btn-secondary btn-sm" id=popclose2<%=s%>>창닫기</button>
+				</article>
+			</div>
+			
+				
 				
 				<script type="text/javascript">
 				
@@ -167,8 +234,21 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 						$("#popUpdate"+<%= s %>).fadeIn();
 						$("#popUpdate"+<%= s %>).addClass("black");
 					});
-					$("#popclose"+<%= s %>).click(function() {
+					$("#popclose1"+<%= s %>).click(function() {
 						$("#popUpdate"+<%= s %>).parent().fadeOut();
+						location.href ="members.do";
+					});
+				});
+
+			
+			
+				$(document).ready(function() {
+					$("#stateUpdate"+<%= s %>+":first-of-type").click(function() {
+						$("#popState"+<%= s %>).fadeIn();
+						$("#popState"+<%= s %>).addClass("black");
+					});
+					$("#popclose2"+<%= s %>).click(function() {
+						$("#popState"+<%= s %>).parent().fadeOut();
 						location.href ="members.do";
 					});
 				});

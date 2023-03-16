@@ -130,7 +130,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "modifyEmail.do", method = RequestMethod.POST)
 	public String modifyEmail(MemberDto dto,Model model) {
-//		System.out.println("MemberController modifyName " + new Date());
+//		System.out.println("MemberController modifyEmail " + new Date());
 		String msg ="";
 		boolean isS = service.modifyEmail(dto);
 		if(isS) {
@@ -144,7 +144,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "modifyContact.do", method = RequestMethod.POST)
 	public String modifyContact(MemberDto dto,Model model) {
-//		System.out.println("MemberController modifyName " + new Date());
+//		System.out.println("MemberController modifyContact " + new Date());
 		String msg ="";
 		boolean isS = service.modifyContact(dto);
 		if(isS) {
@@ -153,6 +153,21 @@ public class MemberController {
 			msg = "NO"; 		// 변경실패
 		}
 		model.addAttribute("modifyContact",msg);
+		return "message";		
+	}	
+	
+	
+	@RequestMapping(value = "modifyAuth.do", method = RequestMethod.POST)
+	public String modifyAuth(MemberDto dto,Model model) {
+//		System.out.println("MemberController modifyContact " + new Date());
+		String msg ="";
+		boolean isS = service.modifyAuth(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("modifyAuth",msg);
 		return "message";		
 	}	
 	

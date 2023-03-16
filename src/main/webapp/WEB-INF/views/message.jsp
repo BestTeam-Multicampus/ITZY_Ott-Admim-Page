@@ -221,7 +221,28 @@ if(modifyContact != null && !modifyContact.equals("")){
 <%
 	}
 }
+
+//사용	
+String modifyAuth = (String)request.getAttribute("modifyAuth");
+if(modifyAuth != null && !modifyAuth.equals("")){
+	if(modifyAuth.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("권한이 성공적으로 변경되었습니다");
+		location.href = "members.do";
+		</script>
+		<%
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("수정 실패");
+		location.href = "members.do";
+		</script>
+<%
+	}
+}
 %>
+
 
 
 

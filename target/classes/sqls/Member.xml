@@ -41,6 +41,10 @@
 		update member set contact=#{contact} where id=#{id}
 	</update>
 	
+	<update id="modifyAuth"  parameterType="ITzy.admin.dto.MemberDto">
+		update member set auth=#{auth} where id=#{id}
+	</update>
+	
 	
 	
 </mapper>

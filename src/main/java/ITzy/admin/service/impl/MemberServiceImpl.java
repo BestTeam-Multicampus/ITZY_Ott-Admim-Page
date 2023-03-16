@@ -56,4 +56,9 @@ public class MemberServiceImpl implements MemberService{
 		int count = dao.modifyEmail(dto);
 		return count>0?true:false;
 	}
+	@Override
+	public boolean modifyAuth(MemberDto dto) {
+		int count = dao.modifyAuth(dto);
+		return count>0?true:false;
+	}
 }

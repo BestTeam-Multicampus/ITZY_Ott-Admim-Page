@@ -12,4 +12,5 @@ public interface MemberService {
 	boolean modifyName(MemberDto dto);
 	boolean modifyEmail(MemberDto dto);
 	boolean modifyContact(MemberDto dto);
+	boolean modifyAuth(MemberDto dto);
 }

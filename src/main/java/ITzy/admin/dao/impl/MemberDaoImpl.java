@@ -58,4 +58,9 @@ public class MemberDaoImpl implements MemberDao{
 	public int modifyEmail(MemberDto dto) {
 		return session.update(ns + "modifyEmail", dto);
 	}
+	
+	@Override
+	public int modifyAuth(MemberDto dto) {
+		return session.update(ns + "modifyAuth", dto);
+	}
 }

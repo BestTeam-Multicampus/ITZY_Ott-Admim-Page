@@ -12,4 +12,6 @@ public interface MemberDao {
 	int modifyName(MemberDto dto);
 	int modifyEmail(MemberDto dto);
 	int modifyContact(MemberDto dto);
+	int modifyAuth(MemberDto dto);
+	
 }
