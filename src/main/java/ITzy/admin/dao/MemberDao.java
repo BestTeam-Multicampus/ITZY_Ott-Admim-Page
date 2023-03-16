@@ -14,4 +14,9 @@ public interface MemberDao {
 	int modifyContact(MemberDto dto);
 	int modifyAuth(MemberDto dto);
 	
+	List<MemberDto> BizMems();
+	List<MemberDto> NomalMems();
+	List<MemberDto> BanMems();
+	List<MemberDto> Managers();
+	
 }

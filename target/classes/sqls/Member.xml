@@ -9,6 +9,30 @@
 		from member
 		order by id asc
 	</select>
+	<select id="BizMems" resultType="ITzy.admin.dto.MemberDto">
+		select id, name, email,company, contact, auth
+		from member
+		where auth=1
+		order by id asc
+	</select>
+	<select id="NomalMems" resultType="ITzy.admin.dto.MemberDto">
+		select id, name, email,company, contact, auth
+		from member
+		where auth=2
+		order by id asc
+	</select>
+	<select id="BanMems" resultType="ITzy.admin.dto.MemberDto">
+		select id, name, email,company, contact, auth
+		from member
+		where auth=3
+		order by id asc
+	</select>
+	<select id="Managers" resultType="ITzy.admin.dto.MemberDto">
+		select id, name, email,company, contact, auth
+		from member
+		where auth=0
+		order by id asc
+	</select>
 
 	<select id="idcheck" parameterType="java.lang.String" resultType="Integer">
 		select count(*)

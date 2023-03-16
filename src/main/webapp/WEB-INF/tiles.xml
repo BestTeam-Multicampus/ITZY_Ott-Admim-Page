@@ -15,11 +15,25 @@
 		<put-attribute name="content" value="/WEB-INF/views/main/members.jsp" />
 	</definition>
 
+	<definition name="BizMems" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/main/members.jsp" />
+	</definition>
+
+	<definition name="NomalMems" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/main/members.jsp" />
+	</definition>
+
+	<definition name="BanMems" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/main/members.jsp" />
+	</definition>
+
+	<definition name="Managers" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/main/members.jsp" />
+	</definition>
 
 	<definition name="bulletins"  extends="main">
 		<put-attribute name="content" value="/WEB-INF/views/main/bulletins.jsp" />
 	</definition>
-
 
 	<definition name="recruits"  extends="main">
 		<put-attribute name="content" value="/WEB-INF/views/main/recruits.jsp" />

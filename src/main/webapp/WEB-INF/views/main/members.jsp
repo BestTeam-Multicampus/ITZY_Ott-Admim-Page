@@ -90,8 +90,11 @@ option[value=""][disabled] {
 
 	<%
 List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
+String go = (String)request.getAttribute("go");
+String title = (String)request.getAttribute("title");
+	
 %>
-	<h1>회원 조회</h1>
+	<h1><%= title %></h1>
 
 
 	<div class="container">
@@ -167,19 +170,22 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				
 				<form action= "modifyName.do" method="post">
 				<input type="hidden" name=id value="<%= dto.getId() %>">				
+				<input type="hidden" name=go value="<%= go %>">				
 				이름 변경 : <input type="text" id=name<%= s %> name=name placeholder="변경할 이름"> 
 				<button type="submit" id=nameBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
 				</form>		
 			
 				<form action= "modifyEmail.do" method="post">
-				<input type="hidden" name=id value="<%= dto.getId() %>">	
+				<input type="hidden" name=id value="<%= dto.getId() %>">
+				<input type="hidden" name=go value="<%= go %>">			
 				<br> email 변경 : <input type="email" id=email<%= s %> name=email placeholder="변경할 email">
 				<button type="submit" id=emailBtn<%= s %>  class="btn btn-secondary btn-sm">변경</button>
 				</form>	
 			
 			
 				<form action= "modifyContact.do" method="post">
-				<input type="hidden" name=id value="<%= dto.getId() %>">	
+				<input type="hidden" name=id value="<%= dto.getId() %>">
+				<input type="hidden" name=go value="<%= go %>">			
 				<br> 연락처 변경 : <input type="text" id=contact<%= s %> name=contact  maxlength=13 placeholder="숫자만 입력" onkeyup="chk_tel(this.value,'contact<%= s %>')">					
 				<button type="submit" id=conBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
 				</form>	
@@ -208,9 +214,9 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 					<br>
 					
 				<form action= "modifyAuth.do" method="post">
+				<input type="hidden" name=go value="<%= go %>">		
 				<input type="hidden" name=id value="<%= dto.getId() %>">
 					<select name=auth>
-					    <option value="" disabled selected>변경할 권한 선택</option>
 					    <option value=0>관리자</option>
 					    <option value=1>기업회원</option>
 					    <option value=2>일반회원</option>

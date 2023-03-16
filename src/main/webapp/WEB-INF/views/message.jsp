@@ -163,22 +163,22 @@ if(pdsupdate != null && !pdsupdate.equals("")){
 }
 
 //사용	
-String nameUpdate = (String)request.getAttribute("nameUpdate");
-if(nameUpdate != null && !nameUpdate.equals("")){
-	if(nameUpdate.equals("YES")){
+String go = (String)request.getAttribute("go");
+String modifyName = (String)request.getAttribute("modifyName");
+if(modifyName != null && !modifyName.equals("")){
+	if(modifyName.equals("YES")){
 		%>
 		<script type="text/javascript">
 		alert("이름이 성공적으로 수정되었습니다");
-		location.href = "members.do";
 		</script>
 		<%
+		response.sendRedirect(go+".do");		
 	} else{
 		%>
 		<script type="text/javascript">
 		alert("수정 실패");
-		location.href = "members.do";
 		</script>
-<%
+<%		response.sendRedirect(go+".do");
 	}
 }
 
@@ -189,16 +189,15 @@ if(modifyEmail != null && !modifyEmail.equals("")){
 		%>
 		<script type="text/javascript">
 		alert("메일주소가 성공적으로 수정되었습니다");
-		location.href = "members.do";
 		</script>
 		<%
+		response.sendRedirect(go+".do");		
 	} else{
 		%>
 		<script type="text/javascript">
 		alert("수정 실패");
-		location.href = "members.do";
 		</script>
-<%
+<%		response.sendRedirect(go+".do");
 	}
 }
 
@@ -209,16 +208,15 @@ if(modifyContact != null && !modifyContact.equals("")){
 		%>
 		<script type="text/javascript">
 		alert("연락처가 성공적으로 수정되었습니다");
-		location.href = "members.do";
 		</script>
 		<%
+		response.sendRedirect(go+".do");		
 	} else{
 		%>
 		<script type="text/javascript">
 		alert("수정 실패");
-		location.href = "members.do";
 		</script>
-<%
+<%		response.sendRedirect(go+".do");
 	}
 }
 
@@ -228,17 +226,16 @@ if(modifyAuth != null && !modifyAuth.equals("")){
 	if(modifyAuth.equals("YES")){
 		%>
 		<script type="text/javascript">
-		alert("권한이 성공적으로 변경되었습니다");
-		location.href = "members.do";
+		alert("연락처가 성공적으로 수정되었습니다");
 		</script>
 		<%
+		response.sendRedirect(go+".do");		
 	} else{
 		%>
 		<script type="text/javascript">
 		alert("수정 실패");
-		location.href = "members.do";
 		</script>
-<%
+<%		response.sendRedirect(go+".do");
 	}
 }
 %>

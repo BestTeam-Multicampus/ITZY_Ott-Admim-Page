@@ -13,4 +13,9 @@ public interface MemberService {
 	boolean modifyEmail(MemberDto dto);
 	boolean modifyContact(MemberDto dto);
 	boolean modifyAuth(MemberDto dto);
+	
+	List<MemberDto> BizMems();
+	List<MemberDto> NomalMems();
+	List<MemberDto> BanMems();
+	List<MemberDto> Managers();
 }

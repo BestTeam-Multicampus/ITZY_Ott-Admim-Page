@@ -21,6 +21,23 @@ public class MemberServiceImpl implements MemberService{
 	public List<MemberDto> allMember() {
 		return dao.allMember();
 	}
+	@Override
+	public List<MemberDto> BanMems() {
+		return dao.BanMems();
+
+	}@Override
+	public List<MemberDto> BizMems() {
+		return dao.BizMems();
+
+	}@Override
+	public List<MemberDto> Managers() {
+		return dao.Managers();
+
+	}@Override
+	public List<MemberDto> NomalMems() {
+		return dao.NomalMems();
+
+	}
 
 
 	@Override

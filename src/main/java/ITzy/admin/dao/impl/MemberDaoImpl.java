@@ -26,6 +26,19 @@ public class MemberDaoImpl implements MemberDao{
 //		return session.selectList("Member." + "allMember");
 		return session.selectList("Member.allMember");
 	}
+	@Override
+	public List<MemberDto> BanMems() {
+		return session.selectList("Member.BanMems");
+	}@Override
+	public List<MemberDto> BizMems() {
+		return session.selectList("Member.BizMems");
+	}@Override
+	public List<MemberDto> Managers() {
+		return session.selectList("Member.Managers");
+	}@Override
+	public List<MemberDto> NomalMems() {
+		return session.selectList("Member.NomalMems");
+	}
 
 
 	@Override

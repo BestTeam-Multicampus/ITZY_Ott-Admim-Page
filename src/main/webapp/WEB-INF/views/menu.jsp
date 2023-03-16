@@ -18,8 +18,10 @@
 	<ul class="list-group">
 		<li class="list-group-item"><a href="main.do">메인화면</a></li>
 		<li class="list-group-item"><a href="members.do">전체회원</a></li>
-		<li class="list-group-item"><a href="#none">기업회원</a></li>
-		<li class="list-group-item"><a href="#none">일반회원</a></li> 
+		<li class="list-group-item"><a href="BizMems.do">기업회원</a></li>
+		<li class="list-group-item"><a href="NomalMems.do">일반회원</a></li> 
+		<li class="list-group-item"><a href="BanMems.do">활동정지회원</a></li> 
+		<li class="list-group-item"><a href="Managers.do">관리자</a></li> 
 		<li class="list-group-item"><a href="bulletins.do">게시판 관리</a></li>
 		<li class="list-group-item"><a href="recruits.do">모집공고 관리</a></li>
 		<li class="list-group-item"><a href="#none">프로필 관리</a></li>
