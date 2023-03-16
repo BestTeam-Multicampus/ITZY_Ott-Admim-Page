@@ -45,5 +45,8 @@ public class MemberDaoImpl implements MemberDao{
 		MemberDto mem = session.selectOne(ns + "login", dto);
 		return mem;
 	}
-	
+	@Override
+	public int modifyName(MemberDto dto) {
+		return session.update(ns + "modifyName", dto);
+	}
 }

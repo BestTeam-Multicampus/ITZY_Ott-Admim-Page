@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%
+//사용	
 String sessionOut = (String)request.getAttribute("sessionOut");
 if(sessionOut != null && !sessionOut.equals("")){
 	%>
@@ -13,6 +14,7 @@ if(sessionOut != null && !sessionOut.equals("")){
 		%>
 
 <%
+//사용	
 String message = (String)request.getAttribute("message");
 if(message != null && !message.equals("")){
 	if(message.equals("MEMBER_ADD_YES")){
@@ -31,7 +33,7 @@ if(message != null && !message.equals("")){
 		<%		
 	}
 }
-
+//사용	
 String login = (String)request.getAttribute("login");
 if(login != null && !login.equals("")){
 	if(login.equals("LOGIN_OK")){
@@ -155,6 +157,28 @@ if(pdsupdate != null && !pdsupdate.equals("")){
 		alert("다시 작성해 주십시오");
 		let seq = "<%=seq %>";		
 		location.href = "pdslist.do"
+		</script>
+<%
+	}
+}
+
+//사용	
+
+
+String nameUpdate = (String)request.getAttribute("nameUpdate");
+if(nameUpdate != null && !nameUpdate.equals("")){
+	if(nameUpdate.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("이름이 성공적으로 수정되었습니다");
+		location.href = "members.do";
+		</script>
+		<%
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("수정 실패");
+		location.href = "members.do";
 		</script>
 <%
 	}

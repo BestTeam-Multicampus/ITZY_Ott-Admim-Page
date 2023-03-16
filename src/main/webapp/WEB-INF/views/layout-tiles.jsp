@@ -3,18 +3,36 @@
 
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+	rel="stylesheet">
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+* {
+	font-family: "Nanum Gothic", cursive;
+}
+
 body {
 	margin: 0;
 }
 
 h1, h2, h3 {
 	margin: 0;
+}
+
+a {
+	text-decoration: none !important
+}
+
+a:hover {
+	color: red !important;
 }
 
 .logo {
@@ -31,6 +49,7 @@ h1, h2, h3 {
 	height: 100px;
 	margin-left: 100px;
 	background: #F5DEB3;
+	height: 100px;
 }
 
 .menu {

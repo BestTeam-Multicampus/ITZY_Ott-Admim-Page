@@ -9,4 +9,5 @@ public interface MemberService {
 	MemberDto login(MemberDto dto);
 	boolean idCheck(String id);
 	boolean addMember(MemberDto dto);
+	boolean modifyName(MemberDto dto);
 }

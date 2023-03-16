@@ -112,4 +112,21 @@ public class MemberController {
 		model.addAttribute("sessionOut", sessionOut);
 		return "message";
 	}
+	
+	
+	@RequestMapping(value = "modifyName.do", method = RequestMethod.POST)
+	public String modifyName(MemberDto dto,Model model) {
+//		System.out.println("MemberController modifyName " + new Date());
+		String msg ="";
+		boolean isS = service.modifyName(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("nameUpdate",msg);
+		return "message";		
+	}	
+	
+	
 }

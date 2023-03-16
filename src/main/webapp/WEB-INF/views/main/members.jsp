@@ -4,10 +4,14 @@
 	pageEncoding="UTF-8"%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <!DOCTYPE html>
 
 <style>
-.tableWrapper {
+.container {
 	width: 100%;
 	height: 500px;
 	overflow: auto;
@@ -56,8 +60,8 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 	<h1>회원 조회</h1>
 
 
-	<div class="tableWrapper">
-		<table id="ListTable" border="1">
+	<div class="container">
+		<table id="ListTable" class="table table-hover">
 			<col width="80">
 			<col width="80">
 			<col width="150">
@@ -101,11 +105,11 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 
 				</td>
 				<td>
-					<button class=infoUpdate id=infoUpdate<%= s %>>수정</button>
+					<button class="btn btn-primary" id=infoUpdate<%= s %> >수정</button>
 
 				</td>
 				<td>
-					<button class=stateUpdate id=stateUpdate<%= s %>>변경</button>
+					<button  class="btn btn-danger" id=stateUpdate<%= s %>>변경</button>
 				</td>
 
 				<%-- <td class="hidden-col">
@@ -125,32 +129,37 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				<article>
 				<br>
 				<h1>회원정보 수정</h1>
-				<h2>아이디 : <%= dto.getId() %> 님</h2>				
+				<h2>아이디 : <%= dto.getId() %> 님</h2>
+							
 				<br>
-				<form action="">					
-					이름 변경 : <input type="text" id=name<%= s %> name=name placeholder="변경할 이름"> 
-					<input type="button"value="변경">
-				</form>	
 				
-				<form action="">	
-					<br> email 변경 : <input type="text" id=email<%= s %> name=email placeholder="변경할 email">
-					<input type="button" value="변경">
-				</form>	
+				<form action= "modifyName.do" method="post">
+				<input type="hidden" name=id value="<%= dto.getId() %>">				
+				이름 변경 : <input type="text" id=name<%= s %> name=name placeholder="변경할 이름"> 
+				<button type="submit" id=nameBtn<%= s %> class="btn btn-secondary btn-sm"> 이름 변경</button>
+				</form>		
+			
 				
+				<br> email 변경 : <input type="text" id=email<%= s %> name=email placeholder="변경할 email">
+				<input type="button"  id=emailBtn<%= s %> value="변경" class="btn btn-secondary btn-sm">
+			
+			
+			
+			
+				<br> 연락처 변경 : <input type="text" id=contact<%= s %> name=contact  maxlength=13 placeholder="숫자만 입력" onkeyup="chk_tel(this.value,'contact<%= s %>')">					
+				<input type="button"  id=conBtn<%= s %> value="변경" class="btn btn-secondary btn-sm">
 				
-				<form action="">	
-					<br> 연락처 변경 : <input type="text" id=contact<%= s %> name=contact  maxlength=13 placeholder="숫자만 입력" onkeyup="chk_tel(this.value,'contact<%= s %>')">					
-					<input type="button"  value="변경">
-				</form>	
 				
 				<br>	
 				<br>	
 				<br>	
 				<br>	
-					<button class=popclose id=popclose<%= s %>>창닫기</button>
+					<button class="btn btn-secondary btn-sm" id=popclose<%= s %>>창닫기</button>
 				</article>
 				
 				<script type="text/javascript">
+				
+			
 				$(document).ready(function() {
 					$("#infoUpdate"+<%= s %>+":first-of-type").click(function() {
 						$("#popUpdate"+<%= s %>).fadeIn();
@@ -161,6 +170,8 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 						location.href ="members.do";
 					});
 				});
+
+				
 				</script>
 								
 			</div>
@@ -230,5 +241,9 @@ List<MemberDto> list = (List<MemberDto>) request.getAttribute("allmem");
 				}
 			}
 		}
+
+	
+	
+	
 	</script>
 </body>

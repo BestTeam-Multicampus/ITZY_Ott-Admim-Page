@@ -4,7 +4,7 @@
 	
 <mapper namespace="Member">
 	
-<select id="allMember" resultType="ITzy.admin.dto.MemberDto">
+	<select id="allMember" resultType="ITzy.admin.dto.MemberDto">
 		select id, name, email,company, contact, auth
 		from member
 		order by id asc
@@ -26,6 +26,11 @@
 		from member
 		where id=#{id} and pwd=#{pwd} and auth=0 <!-- 관리자 0 -->
 	</select>
+	
+	<update id="modifyName"  parameterType="ITzy.admin.dto.MemberDto">
+		update member set name=#{name} where id=#{id}
+	</update>
+	
 	
 	
 </mapper>

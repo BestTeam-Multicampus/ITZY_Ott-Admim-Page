@@ -41,4 +41,9 @@ public class MemberServiceImpl implements MemberService{
 	public MemberDto login(MemberDto dto) {
 		return dao.login(dto);
 	}
+	@Override
+	public boolean modifyName(MemberDto dto) {
+		int count = dao.modifyName(dto);
+		return count>0?true:false;
+	}
 }
