@@ -43,21 +43,28 @@ button {
 	height: 35px;
 }
 
-.logout{
-	display:flex;
+.box {
+	display: flex;
 	justify-content: flex-end;
 	padding-right: 20px;
 }
 
+pre {
+	margin-bottom: 0 !important;	
+}
+
+
 </style>
 
-<div class=logout>
-<div >
-	<p>접속한 관리자 아이디 : <%=login.getId()%></p>
-	<p>이름 : <%=login.getName()%></p>
+<div class=box>
+<div >	
+<pre>
+	접속한 관리자 
+	아이디 : <%=login.getId()%>
+	이름 : <%=login.getName()%></pre>
 </div>
 
-<div id=box>
+<div id=logout>
 <br>
 	<img alt="img" src="./images/logout.png" width="30px;" height="30px;">
 	<button type="button" id="logoutBtn">logout</button>
