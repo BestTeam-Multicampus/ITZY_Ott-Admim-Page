@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OTT admin page</title>
 <style type="text/css">
 * {
 	font-family: "Nanum Gothic", cursive;
@@ -37,38 +37,47 @@ a:hover {
 
 .logo {
 	position: fixed;
-	background: black;
+	background: #2F1111;
 	width: 150px;
 	float: left;
 	height: 75px;
 }
 
 .header {
-	color:white;
+	color: white;
 	position: fixed;
-	
 	height: 100px;
 	margin-left: 150px;
-	background: black;
+	background: #2F1111;
 	height: 75px;
-	width:calc(100% - 150px);
+	width: calc(100% - 150px);
 }
 
 .menu {
-	position: fixed;
-	margin-top: 100px;
 	float: left;
-	height: 100vh;
-	width: 200px;
+	height: 100%;
+	width: 15%;
 	/* background-color: gray; */
 }
 
 .content {
+	float: left;
+	height: 100%;
+	width: 60%;
+}
+
+.memo {
+	float: left;
+	height: 100%;
+	width: 25%;
+	padding-left: 2em;
+	background-color: pink;
+}
+
+.float {
 	position: fixed;
 	margin-top: 100px;
-	margin-left: 200px;
-	top: 20px;
-	left: 20px;
+	width: 100vw;
 	height: 100vh;
 }
 </style>
@@ -87,16 +96,18 @@ a:hover {
 
 	<!-- main -->
 
-	<div class="menu">
-		<tiles:insertAttribute name="menu" />
-	</div>
-	<div class="content">
-		<tiles:insertAttribute name="content" />
+	<div class=float>
+		<div class="menu">
+			<tiles:insertAttribute name="menu" />
+		</div>
+		<div class="content">
+			<tiles:insertAttribute name="content" />
+		</div>
+		<div class="memo">
+			<tiles:insertAttribute name="memo" />
+		</div>
 	</div>
 
-
-
-	</div>
 
 </body>
 </html>

@@ -18,14 +18,14 @@
 	crossorigin="anonymous"></script>
 
 <%
-MemberDto login = (MemberDto) session.getAttribute("login");
+MemberDto login = (MemberDto)session.getAttribute("login");
 if (login == null) {
 %>
 <script>
 	alert("로그인 세션이 만료되었습니다");
-	location.href = "login.do";
 </script>
 <%
+response.sendRedirect("login.do");
 }
 %>
 
@@ -34,41 +34,35 @@ img {
 	margin: auto;
 }
 
-button {
-	background-color: black;
-	border-color: white;
-	border-radius: 10px !important;
-	color: white;
-	width: 70px;
-	height: 35px;
-}
 
 .box {
 	display: flex;
 	justify-content: flex-end;
-	padding-right: 20px;
+	padding-right: 30px;
 }
 
 pre {
-	margin-bottom: 0 !important;	
+	margin-bottom: 0 !important;
+	font-size: small;	
 }
 
 
 </style>
 
 <div class=box>
-<div >	
-<pre>
-	접속한 관리자 
-	아이디 : <%=login.getId()%>
-	이름 : <%=login.getName()%></pre>
-</div>
+	<div>
+		<pre>
 
-<div id=logout>
-<br>
-	<img alt="img" src="./images/logout.png" width="30px;" height="30px;">
-	<button type="button" id="logoutBtn">logout</button>
-</div>
+	<b>접속한 관리자
+	아이디 : <%=login.getId()%> 이름 : <%=login.getName()%> </b></pre>
+	</div>
+
+
+	<div id=logout>
+		<br> <img alt="img" src="./images/logout.png" width="30px;"
+			height="30px;">
+		<button type="button" id="logoutBtn" class="btn btn-outline-light">logout</button>
+	</div>
 
 </div>
 
@@ -79,4 +73,8 @@ pre {
 			location.href = "sessionOut.do";
 		});
 	});
+	
+	
+	
+	
 </script>

@@ -13,17 +13,19 @@
 	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 	crossorigin="anonymous"></script>
 
+
 <%
 MemberDto login = (MemberDto)session.getAttribute("login");
 if (login == null) {
 %>
 <script>
-	alert('로그인 해 주십시오');
-	location.href = "login.do";
+	alert("로그인 세션이 만료되었습니다");
 </script>
 <%
+response.sendRedirect("login.do");
 }
 %>
+
 
 
 <div class="container">

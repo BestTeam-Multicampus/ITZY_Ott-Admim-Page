@@ -8,7 +8,8 @@
 		<put-attribute name="logo" value="/WEB-INF/views/logo.jsp" />
 		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
  		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
-		<put-attribute name="content" value="/WEB-INF/views/main/mainpage.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/main/mainpage.jsp" />
+ 		<put-attribute name="memo" value="/WEB-INF/views/memo.jsp" />
 	</definition>
 
 	<definition name="members" extends="main">

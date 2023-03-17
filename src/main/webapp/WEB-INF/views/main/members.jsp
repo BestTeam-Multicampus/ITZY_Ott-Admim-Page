@@ -12,20 +12,33 @@
 
 <!DOCTYPE html>
 
+<%
+MemberDto login = (MemberDto)session.getAttribute("login");
+if (login == null) {
+%>
+<script>
+	alert("로그인 세션이 만료되었습니다");
+</script>
+<%
+response.sendRedirect("login.do");
+}
+%>
+
 <style>
 .container {
 	width: 100%;
 	height: 500px;
-	overflow: auto;
+	overflow-y:auto; 
 }
 
 #ListTable {
-	width: 1000px;
-	/* border-collapse: collapse; */
+	width: 100%;
+	font-size: small;
+	border-collapse: collaps
 }
 
 #ListTable th {
-	height: 50px;
+	height: 40px;
 	position: sticky;
 	top: 0px;
 	background-color: #F0F0F0;
@@ -109,8 +122,7 @@ String title = (String)request.getAttribute("title");
 			<col width="100">
 			<col width="80">
 			<col width="80">
-			<tr style="cursor: default;">
-
+			<tr>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>이메일</th>
@@ -149,11 +161,11 @@ String title = (String)request.getAttribute("title");
 
 				</td>
 				<td>
-					<button class="btn btn-primary" id=infoUpdate<%= s %> >수정</button>
+					<button class="btn btn-primary btn-sm" id=infoUpdate<%= s %> >수정</button>
 
 				</td>
 				<td>
-					<button  class="btn btn-danger" id=stateUpdate<%= s %>>변경</button>
+					<button  class="btn btn-danger btn-sm" id=stateUpdate<%= s %>>변경</button>
 				</td>
 
 			
