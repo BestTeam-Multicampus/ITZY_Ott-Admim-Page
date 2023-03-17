@@ -28,7 +28,7 @@ h1, h2, h3 {
 }
 
 a {
-	text-decoration: none !important
+	text-decoration: none !important;
 }
 
 a:hover {
@@ -37,19 +37,21 @@ a:hover {
 
 .logo {
 	position: fixed;
-	background: pink;
-	width: 100px;
+	background: black;
+	width: 150px;
 	float: left;
-	height: 100px;
+	height: 75px;
 }
 
 .header {
+	color:white;
 	position: fixed;
-	width: 100vw;
+	
 	height: 100px;
-	margin-left: 100px;
-	background: #F5DEB3;
-	height: 100px;
+	margin-left: 150px;
+	background: black;
+	height: 75px;
+	width:calc(100% - 150px);
 }
 
 .menu {

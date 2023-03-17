@@ -1,3 +1,4 @@
+<%@page import="ITzy.admin.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- CSS only -->
@@ -11,6 +12,19 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 	crossorigin="anonymous"></script>
+
+<%
+MemberDto login = (MemberDto)session.getAttribute("login");
+if (login == null) {
+%>
+<script>
+	alert('로그인 해 주십시오');
+	location.href = "login.do";
+</script>
+<%
+}
+%>
+
 
 <div class="container">
 	<h1>menu</h1>

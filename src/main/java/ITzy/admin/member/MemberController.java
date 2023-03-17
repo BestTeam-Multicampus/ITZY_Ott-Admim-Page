@@ -170,7 +170,8 @@ public class MemberController {
 	
 	// session check
 	@RequestMapping(value = "sessionOut.do", method = RequestMethod.GET)
-	public String sessionOut(Model model) {
+	public String sessionOut(HttpServletRequest req,Model model) {
+		req.removeAttribute("login");
 		String sessionOut = "logout";
 		model.addAttribute("sessionOut", sessionOut);
 		return "message";

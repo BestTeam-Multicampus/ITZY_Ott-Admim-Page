@@ -6,7 +6,7 @@ String sessionOut = (String)request.getAttribute("sessionOut");
 if(sessionOut != null && !sessionOut.equals("")){
 	%>
 		<script type="text/javascript">
-		alert("로그인 해주십시오");
+		alert("로그아웃되었습니다");
 		location.href = "login.do";
 		</script>
 		<%
