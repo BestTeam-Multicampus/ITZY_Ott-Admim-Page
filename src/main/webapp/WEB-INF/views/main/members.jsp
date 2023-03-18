@@ -48,7 +48,7 @@ response.sendRedirect("login.do");
 .popUpdate {
 	position: absolute;
 	z-index: 1;
-	top: 0;
+
 	width: 100%;
 	height: 100%;
 	display: none;
@@ -68,7 +68,7 @@ response.sendRedirect("login.do");
 .popState {
 	position: absolute;
 	z-index: 1;
-	top: 0;
+
 	width: 100%;
 	height: 100%;
 	display: none;
@@ -85,7 +85,11 @@ response.sendRedirect("login.do");
 	cursor: pointer;
 	text-align: center;
 }
-.black { background:rgba(0,0,0,0.3); }
+.black { 
+background:rgba(0,0,0,0.001);
+width: 60%;
+height:100%;
+ }
 
 select{
   border:1px solid #c8c8c8;
@@ -276,7 +280,7 @@ String title = (String)request.getAttribute("title");
 				
 				</script>
 								
-			</div>
+		
 
 			<%
 		} %>

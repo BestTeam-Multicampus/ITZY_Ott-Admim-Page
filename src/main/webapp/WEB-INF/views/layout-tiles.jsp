@@ -21,6 +21,7 @@
 
 body {
 	margin: 0;
+	background-color: gray;
 }
 
 h1, h2, h3 {
@@ -37,7 +38,7 @@ a:hover {
 
 .logo {
 	position: fixed;
-	background: #2F1111;
+	background: #2E304D;
 	width: 150px;
 	float: left;
 	height: 75px;
@@ -48,7 +49,7 @@ a:hover {
 	position: fixed;
 	height: 100px;
 	margin-left: 150px;
-	background: #2F1111;
+	background: #2E304D;
 	height: 75px;
 	width: calc(100% - 150px);
 }
