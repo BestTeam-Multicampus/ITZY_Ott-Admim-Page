@@ -40,7 +40,7 @@ if(login != null && !login.equals("")){
 		%>
 		<script type="text/javascript">
 		alert("로그인 되었습니다");
-		location.href = "main.do";
+		location.href = "calendar.do";
 		</script>
 		<%
 	}else{
@@ -53,114 +53,6 @@ if(login != null && !login.equals("")){
 	}
 }
 
-
-String bbswrite = (String)request.getAttribute("bbswrite");
-if(bbswrite != null && !bbswrite.equals("")){
-	if(bbswrite.equals("BBS_ADD_OK")){
-		%>
-		<script type="text/javascript">
-		alert("성공적으로 작성되었습니다");
-		location.href = "bbslist.do";
-		</script>
-		<%
-	}
-	else{
-		%>
-		<script type="text/javascript">
-		alert("다시 작성해 주십시오");
-		location.href = "bbswrite.do";
-		</script>
-		<%
-	}
-}
-
-
-String answer = (String)request.getAttribute("answer");
-if(answer != null && !answer.equals("")){
-	if(answer.equals("BBS_ANSWER_OK")){
-		%>
-		<script type="text/javascript">
-		alert("답글이 성공적으로 작성되었습니다");
-		location.href = "bbslist.do";
-		</script>
-		<%
-	}
-	else{
-		%>
-		<script type="text/javascript">
-		alert("답글을 다시 작성해 주십시오");
-		location.href = "bbslist.do";
-		</script>
-		<%
-	}	
-}
-
-
-
-String bbsupdate = (String)request.getAttribute("bbsupdate");
-if(bbsupdate != null && !bbsupdate.equals("")){
-	if(bbsupdate.equals("BBS_UPDATE_OK")){
-		%>
-		<script type="text/javascript">
-		alert("성공적으로 수정되었습니다");
-		location.href = "bbslist.do";
-		</script>
-		<%
-	}
-	else{
-		int seq = (Integer)request.getAttribute("seq");
-		%>
-		<script type="text/javascript">
-		alert("다시 작성해 주십시오");
-		let seq = "<%=seq %>";		
-		location.href = "bbslist.do"
-		</script>
-		<%
-	}	
-}
-
-
-
-String bbsdelete = (String)request.getAttribute("bbsdelete");
-if(bbsdelete != null && !bbsdelete.equals("")){
-	if(bbsdelete.equals("BBS_DELETE_OK")){
-		%>
-		<script type="text/javascript">
-		alert("성공적으로 삭제되었습니다");
-		location.href = "bbslist.do";
-		</script>
-		<%
-	}
-	else{
-		%>
-		<script type="text/javascript">
-		alert("삭제되지 않았습니다");		
-		location.href = "bbslist.do";
-		</script>
-		<%
-	}	
-}
-
-String pdsupdate = (String)request.getAttribute("pdsupdate");
-if(pdsupdate != null && !pdsupdate.equals("")){
-	if(pdsupdate.equals("PDS_UPDATE_OK")){
-		%>
-		<script type="text/javascript">
-		alert("성공적으로 수정되었습니다");
-		location.href = "pdslist.do";
-		</script>
-		<%
-	} else{
-		int seq = (Integer)request.getAttribute("seq");
-		%>
-		<script type="text/javascript">
-		alert("다시 작성해 주십시오");
-		let seq = "<%=seq %>";		
-		location.href = "pdslist.do"
-		</script>
-<%
-	}
-}
 
 //사용	
 String go = (String)request.getAttribute("go");
@@ -238,11 +130,73 @@ if(modifyAuth != null && !modifyAuth.equals("")){
 <%		response.sendRedirect(go+".do");
 	}
 }
+
+
+/* ***** calendar ***** */
+String calWrite = (String)request.getAttribute("calWrite");
+if(calWrite != null && !calWrite.equals("")){
+	if(calWrite.equals("Cal_ADD_OK")){
+		%>
+		<script type="text/javascript">
+		alert("성공적으로 작성되었습니다");
+		location.href = "calendar.do";
+		</script>
+		<%
+	}
+	else{
+		%>
+		<script type="text/javascript">
+		alert("다시 작성해 주십시오");
+		location.href = "calwrite.do";
+		</script>
+		<%
+	}
+}
+
+String calUpdate = (String)request.getAttribute("calupdate");
+if(calUpdate != null && !calUpdate.equals("")){
+	if(calUpdate.equals("Cal_UPDATE_OK")){
+		%>
+		<script type="text/javascript">
+		alert("성공적으로 수정되었습니다");
+		location.href = "calendar.do";
+		</script>
+		<%
+	}
+	else{
+		int seq = (Integer)request.getAttribute("seq");
+		%>
+		<script type="text/javascript">
+		alert("다시 작성해 주십시오");
+		let seq = "<%=seq %>";		
+		location.href = "calupdate.do?seq"+seq;
+		</script>
+		<%
+	}	
+}
+String calDelete = (String)request.getAttribute("caldelete");
+if(calDelete != null && !calDelete.equals("")){
+	if(calDelete.equals("Cal_DELETE_OK")){
+		%>
+		<script type="text/javascript">
+		alert("성공적으로 삭제되었습니다");
+		location.href = "calendar.do";
+		</script>
+		<%
+	}
+	else{
+		int seq = (Integer)request.getAttribute("seq");
+		%>			
+		<script type="text/javascript">
+		alert("삭제되지 않았습니다");
+		location.href = "caldelete.do?seq="+seq;
+		</script>
+		<%
+	}	
+}
+
+
+
 %>
-
-
-
-
-
 
 

@@ -8,9 +8,31 @@
 		<put-attribute name="logo" value="/WEB-INF/views/logo.jsp" />
 		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
  		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
- 		<put-attribute name="content" value="/WEB-INF/views/main/mainpage.jsp" />
+ 		<put-attribute name="content" value="" />
  		<put-attribute name="memo" value="/WEB-INF/views/memo.jsp" />
 	</definition>
+	
+	<definition name="calendar" extends="main">
+ 		<put-attribute name="content" value="/WEB-INF/views/calendar/calendar.jsp" />
+	</definition>
+
+
+	<definition name="caldetail" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/calendar/caldetail.jsp" />
+	</definition>
+	
+	<definition name="callist" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/calendar/callist.jsp" />
+	</definition>
+	
+	<definition name="calupdate" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/calendar/calupdate.jsp" />
+	</definition>
+	
+	<definition name="calwrite" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/calendar/calwrite.jsp" />
+	</definition>
+
 
 	<definition name="members" extends="main">
 		<put-attribute name="content" value="/WEB-INF/views/main/members.jsp" />

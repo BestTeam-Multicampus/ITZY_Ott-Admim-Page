@@ -34,11 +34,15 @@ public class MemberController {
 //		System.out.println("MemberController regi " + new Date());
 		return "login/regi";
 	}
+	
+/*	
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public String main() {
 //		System.out.println("MemberController main " + new Date());
 		return "main";
 	}
+*/	
+	
 	@RequestMapping(value = "members.do", method = RequestMethod.GET)
 	public String members(Model model) {
 //		System.out.println("MemberController members " + new Date());

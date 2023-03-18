@@ -32,7 +32,7 @@ response.sendRedirect("login.do");
 	<h1>menu</h1>
 
 	<ul class="list-group">
-		<li class="list-group-item"><a href="main.do">메인화면</a></li>
+		<li class="list-group-item"><a href="calendar.do">메인화면</a></li>
 		<li class="list-group-item"><a href="members.do">전체회원</a></li>
 		<li class="list-group-item"><a href="BizMems.do">기업회원</a></li>
 		<li class="list-group-item"><a href="NomalMems.do">일반회원</a></li> 
