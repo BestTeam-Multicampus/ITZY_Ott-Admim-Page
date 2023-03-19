@@ -9,6 +9,10 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
 
 <!DOCTYPE html>
@@ -127,12 +131,13 @@ if (login == null) {
 <caption>
 	<a href="calendar.do?year=<%=year-1 %>&month=<%=month %>"><img alt="" src="./images/left.gif" width="20px" height="20px"/></a>
 	<a href="calendar.do?year=<%=year %>&month=<%=month-1 %>"><img alt="" src="./images/prec.gif"  width="20px" height="20px"/></a>
-	<%=year %>년<%=month %>월
+	 <span> <%=year %>년<%=month %>월</span>  
 	<a href="calendar.do?year=<%=year %>&month=<%=month+1 %>"><img alt="" src="./images/next.gif"  width="20px" height="20px"/></a>
 	<a href="calendar.do?year=<%=year+1 %>&month=<%=month %>"><img alt="" src="./images/last.gif"  width="20px" height="20px"/></a>	
 </caption>
 
-	<table border="1" id="calendar">
+<div class="container">
+	<table  id="calendar" class="table table-striped table-bordered table-hover">
 
 		<tr>
 			<th>SUN</th>
@@ -156,7 +161,7 @@ if (login == null) {
 					<a style="color:<%=CalUtil.fontColor(dayOfWeek, i) %>" href="callist.do?year=<%=year %>&month=<%=month %>&day=<%=i %>"><%=i%></a>
 					
 					<a href="calwrite.do?year=<%=year %>&month=<%=month %>&day=<%=i %>">
-						<img alt="일정추가" src="./images/pen2.png" />
+						<img alt="일정추가" src="./images/office-material.png" width="10px" height="10px" />
 					</a>
 					<div class="viewcls"><%= getCalView(i, vlist) %></div>
 					
@@ -176,7 +181,8 @@ if (login == null) {
 			}
 			%>
 		</tr>
-	</table>
+	</table>	
+	
  	 <%!
  	public String getCalView(int i, List<CalDto> vlist) {
  	    String d = CalUtil.isTwo(i+"");
@@ -198,7 +204,7 @@ if (login == null) {
 	%>   
 
 
-	
+</div>	
 	
 	
 </body>

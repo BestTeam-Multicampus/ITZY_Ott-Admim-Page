@@ -27,7 +27,7 @@ response.sendRedirect("login.do");
 <style>
 .container {
 	width: 100%;
-	height: 500px;
+	height: 600px;
 	overflow-y:auto; 
 }
 
@@ -190,14 +190,14 @@ String title = (String)request.getAttribute("title");
 				<input type="hidden" name=id value="<%= dto.getId() %>">				
 				<input type="hidden" name=go value="<%= go %>">				
 				이름 변경 : <input type="text" id=name<%= s %> name=name placeholder="변경할 이름"> 
-				<button type="submit" id=nameBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
+				<button type="submit" id=nameBtn<%= s %> class="btn btn-success btn-sm">변경</button>
 				</form>		
 			
 				<form action= "modifyEmail.do" method="post">
 				<input type="hidden" name=id value="<%= dto.getId() %>">
 				<input type="hidden" name=go value="<%= go %>">			
 				<br> email 변경 : <input type="email" id=email<%= s %> name=email placeholder="변경할 email">
-				<button type="submit" id=emailBtn<%= s %>  class="btn btn-secondary btn-sm">변경</button>
+				<button type="submit" id=emailBtn<%= s %>  class="btn btn-success btn-sm">변경</button>
 				</form>	
 			
 			
@@ -205,7 +205,7 @@ String title = (String)request.getAttribute("title");
 				<input type="hidden" name=id value="<%= dto.getId() %>">
 				<input type="hidden" name=go value="<%= go %>">			
 				<br> 연락처 변경 : <input type="text" id=contact<%= s %> name=contact  maxlength=13 placeholder="숫자만 입력" onkeyup="chk_tel(this.value,'contact<%= s %>')">					
-				<button type="submit" id=conBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
+				<button type="submit" id=conBtn<%= s %> class="btn btn-success btn-sm">변경</button>
 				</form>	
 				
 				<br>		
@@ -240,7 +240,7 @@ String title = (String)request.getAttribute("title");
 					    <option value=2>일반회원</option>
 					    <option value=3>활동정지</option>
 					</select>	
-					<button type="submit" id=authBtn<%= s %> class="btn btn-secondary btn-sm">변경</button>
+					<button type="submit" id=authBtn<%= s %> class="btn btn-success btn-sm">변경</button>
 					<br>
 					<br>			
 				</form>
@@ -260,7 +260,7 @@ String title = (String)request.getAttribute("title");
 					});
 					$("#popclose1"+<%= s %>).click(function() {
 						$("#popUpdate"+<%= s %>).parent().fadeOut();
-						location.href ="members.do";
+						location.reload();
 					});
 				});
 
@@ -273,7 +273,7 @@ String title = (String)request.getAttribute("title");
 					});
 					$("#popclose2"+<%= s %>).click(function() {
 						$("#popState"+<%= s %>).parent().fadeOut();
-						location.href ="members.do";
+						location.reload();
 					});
 				});
 

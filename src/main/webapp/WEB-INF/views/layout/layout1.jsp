@@ -55,9 +55,11 @@ a:hover {
 }
 
 .menu {
-	float: left;
+	padding-top: 3%; 
+	float : left;
 	height: 100%;
 	width: 15%;
+	float: left;
 	/* background-color: gray; */
 }
 
@@ -65,6 +67,7 @@ a:hover {
 	float: left;
 	height: 100%;
 	width: 60%;
+	
 }
 
 .memo {

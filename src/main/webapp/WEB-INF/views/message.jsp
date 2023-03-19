@@ -196,7 +196,26 @@ if(calDelete != null && !calDelete.equals("")){
 }
 
 
+/* ***** QNA ***** */
+//사용	
+String addAns = (String)request.getAttribute("addAns");
+if(addAns != null && !addAns.equals("")){
+	if(addAns.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("연락처가 성공적으로 수정되었습니다");
+		</script>
+		<%
+		response.sendRedirect(go+".do");		
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("수정 실패");
+		</script>
+<%		response.sendRedirect(go+".do");
+	}
+}
+
 
 %>
-
 
