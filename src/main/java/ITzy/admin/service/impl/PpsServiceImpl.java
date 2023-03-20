@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ITzy.admin.dao.PpsDao;
-import ITzy.admin.dto.PpsParam;
 import ITzy.admin.dto.MemberDto;
 import ITzy.admin.dto.PpsDto;
 import ITzy.admin.service.PpsService;

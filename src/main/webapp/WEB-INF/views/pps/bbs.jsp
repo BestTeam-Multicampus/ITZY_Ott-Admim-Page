@@ -1,4 +1,4 @@
-<%@page import="ITzy.admin.dto.NbsDto"%>
+<%@page import="ITzy.admin.dto.BbsDto"%>
 <%@page import="ITzy.admin.dto.PpsDto"%>
 <%@page import="ITzy.admin.dto.QnaDto"%>
 <%@page import="ITzy.admin.dto.MemberDto"%>
@@ -113,7 +113,7 @@ option[value=""][disabled] {
 <body>
 
 	<%
-List<NbsDto> list = (List<NbsDto>) request.getAttribute("nbs");
+List<BbsDto> list = (List<BbsDto>) request.getAttribute("bbs");
 String type = (String)request.getAttribute("type");
 String go = (String)request.getAttribute("go");
 	
@@ -155,7 +155,7 @@ String go = (String)request.getAttribute("go");
 
 		for (int i = 0; i < list.size(); i++) {
 	
-			NbsDto dto = list.get(i);
+			BbsDto dto = list.get(i);
 			String s = Integer.toString(i);
 			String id = dto.getId();
 		%>
@@ -189,7 +189,7 @@ String go = (String)request.getAttribute("go");
 			<textarea style="width:90%; height:110px; resize: none;" readonly="readonly">
 				<%= dto.getContent() %>
 		</textarea>
-					<form action="delNbs.do" method="post" id=frm<%= s %>>
+					<form action="delBbs.do" method="post" id=frm<%= s %>>
 						<input type="hidden" name=seq value="<%=dto.getSeq()%>"> 				
 						<br>
 						<button type="submit" id=Btn<%=s%>
@@ -229,7 +229,7 @@ String go = (String)request.getAttribute("go");
 			<textarea style="width:90%; height:110px; resize: none;" readonly="readonly">
 				<%= dto.getContent() %>
 		</textarea>
-					<form action="showNbs.do" method="post" id=frm<%= s %>>
+					<form action="showBbs.do" method="post" id=frm<%= s %>>
 						<input type="hidden" name=seq value="<%=dto.getSeq()%>"> 				
 						<br>
 						<button type="submit" id=Btn2<%=s%>

@@ -255,5 +255,82 @@ if(showPps != null && !showPps.equals("")){
 }
 
 
-%>
+/* ***** bbs ***** */
+//사용	
+String delBbs = (String)request.getAttribute("delBbs");
+if(delBbs != null && !delBbs.equals("")){
+	if(delBbs.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("숨김처리 되었습니다");
+		</script>
+		<%
+		response.sendRedirect("bbs.do");		
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("실패");
+		</script>
+<%		response.sendRedirect("bbs.do");
+	}
+}
+//사용	
+String showBbs = (String)request.getAttribute("showBbs");
+if(showBbs != null && !showBbs.equals("")){
+	if(showBbs.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("숨김처리 되었습니다");
+		</script>
+		<%
+		response.sendRedirect("bbs.do");		
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("실패");
+		</script>
+<%		response.sendRedirect("bbs.do");
+	}
+}
 
+
+/* ***** nbs ***** */
+//사용	
+String delNbs = (String)request.getAttribute("delNbs");
+if(delNbs != null && !delNbs.equals("")){
+	if(delNbs.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("숨김처리 되었습니다");
+		</script>
+		<%
+		response.sendRedirect("nbs.do");		
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("실패");
+		</script>
+<%		response.sendRedirect("nbs.do");
+	}
+}
+//사용	
+String showNbs = (String)request.getAttribute("showNbs");
+if(showNbs != null && !showNbs.equals("")){
+	if(showNbs.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("숨김처리 되었습니다");
+		</script>
+		<%
+		response.sendRedirect("nbs.do");		
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("실패");
+		</script>
+<%		response.sendRedirect("nbs.do");
+	}
+}
+
+
+%>

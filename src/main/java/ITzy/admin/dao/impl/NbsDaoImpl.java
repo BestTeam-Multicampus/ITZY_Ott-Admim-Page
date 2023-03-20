@@ -24,12 +24,12 @@ public class NbsDaoImpl implements NbsDao {
 
 	@Override
 	public int delNbs(NbsDto dto) {
-		return session.update(ns + "delPps", dto);
+		return session.update(ns + "delNbs", dto);
 	}
 
 	@Override
 	public int showNbs(NbsDto dto) {
-		return session.update(ns + "showPps", dto);
+		return session.update(ns + "showNbs", dto);
 	}
 
 }

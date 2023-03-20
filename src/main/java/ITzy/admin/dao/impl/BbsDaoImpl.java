@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ITzy.admin.dao.BbsDao;
-import ITzy.admin.dto.BbsComment;
+
 import ITzy.admin.dto.BbsDto;
 import ITzy.admin.dto.BbsParam;
+import ITzy.admin.dto.NbsDto;
 @Repository
 public class BbsDaoImpl implements BbsDao{
 	
@@ -18,69 +19,20 @@ public class BbsDaoImpl implements BbsDao{
 	
 	String ns = "Bbs.";	
 	
-	
 	@Override
-	public List<BbsDto> bbslist(BbsParam bbs) {
-		return session.selectList(ns + "bbslist", bbs);
+	public List<BbsDto> bbsList() {
+		return session.selectList(ns + "bbsList");
 	}
 
 	@Override
-	public int getAllBbs(BbsParam bbs) {
-		return session.selectOne(ns + "getAllBbs", bbs);
+	public int delBbs(BbsDto dto) {
+		return session.update(ns + "delBbs", dto);
 	}
 
 	@Override
-	public int writeBbs(BbsDto dto) {
-		return session.insert(ns + "writeBbs", dto);
+	public int showBbs(BbsDto dto) {
+		return session.update(ns + "showBbs", dto);
 	}
-
-	@Override
-	public BbsDto getBbs(int seq) {
-		return session.selectOne(ns + "getBbs", seq);
-	}
-
-
-	@Override
-	public int updateBbs(BbsDto dto) {
-		return session.update(ns + "updateBbs", dto);
-	}
-
-	@Override
-	public BbsDto deleteBbs(int seq) {
-		return session.selectOne(ns + "deleteBbs", seq);
-	}
-	
-	
-	
-	//TODO 답글
-	@Override
-	public int answerBbsUpdate(BbsDto dto) {
-		return session.update(ns + "answerBbsUpdate", dto);
-	}
-
-	@Override
-	public int answerBbsInsert(BbsDto dto) {
-		return session.insert(ns + "answerBbsInsert", dto);
-	}
-	
-	
-	
-	
-	
-	
-	//TODO 댓글
-	@Override
-	public int commentWrite(BbsComment bc) {
-		return session.insert(ns + "commentWrite", bc);
-	}
-
-	@Override
-	public List<BbsComment> commentList(int seq) {
-		return session.selectList(ns + "commentList", seq);
-	}
-
-
-
 
 
 

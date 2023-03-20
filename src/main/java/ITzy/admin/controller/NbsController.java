@@ -19,7 +19,7 @@ public class NbsController {
 	
 	
 	@RequestMapping(value = "nbs.do", method = RequestMethod.GET)
-	public String pps(Model model) {
+	public String nbs(Model model) {
 		String go = "nbs";
 		model.addAttribute("go",go);
 

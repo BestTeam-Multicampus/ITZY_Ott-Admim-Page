@@ -62,8 +62,8 @@
 		<put-attribute name="content" value="/WEB-INF/views/pps/pps.jsp" />
 	</definition>
 	
-	<definition name="bulletins"  extends="main">
-		<put-attribute name="content" value="/WEB-INF/views/main/bulletins.jsp" />
+	<definition name="bbs"  extends="main">
+		<put-attribute name="content" value="/WEB-INF/views//pps/bbs.jsp" />
 	</definition>
 
 	<definition name="nbs"  extends="main">
