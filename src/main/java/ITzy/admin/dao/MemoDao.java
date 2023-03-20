@@ -6,7 +6,7 @@ import ITzy.admin.dto.MemoDto;
 
 public interface MemoDao {
 	
-	List<MemoDto> myMemo();
+	List<MemoDto> myMemo(String id);
 	int addMemo(MemoDto dto);
 	int delMemo(MemoDto dto);
 

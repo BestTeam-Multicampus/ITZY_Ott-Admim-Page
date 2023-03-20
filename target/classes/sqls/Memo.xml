@@ -5,18 +5,19 @@
 <mapper namespace="Memo">
 
 <!-- 개인별 메모리스트  -->
-	<select id="myMemo" resultType="ITzy.admin.dto.MemoDto">
+	<select id="myMemo" parameterType="java.lang.String" resultType="ITzy.admin.dto.MemoDto">
 	select id, memo, wdate
-	from memo order by wdate asc;
+	from memo where id=#{id}
+	order by wdate asc
 	</select>
 	
 	<insert id="addMemo" parameterType="ITzy.admin.dto.MemoDto">
 	insert memo(id, memo, wdate)
-	values(#{id},#{memo},now());
+	values(#{id},#{memo},now())
 	</insert>
 	
 	<delete id="delMemo" parameterType="ITzy.admin.dto.MemoDto">
-	delete from memo where seq=#{seq};
+	delete from memo where seq=#{seq}
 	</delete>
 
 

@@ -19,10 +19,7 @@
 	font-family: "Nanum Gothic", cursive;
 }
 
-body {
-	margin: 0;
-	background-color: gray;
-}
+
 
 h1, h2, h3 {
 	margin: 0;
@@ -73,9 +70,7 @@ a:hover {
 	float: left;
 	height: 100%;
 	width: 25%;
-	padding-left: 2em;
-	background-color: pink;
-}
+	padding-left: 2em;}
 
 .float {
 	position: fixed;

@@ -29,28 +29,7 @@ response.sendRedirect("login.do");
 
 
 <div class="container" style="height: 100%;">
-<!-- 
-	<ul class="list-group">
-		<li class="list-group-item list-group-item-secondary"><a href="calendar.do">메인화면</a></li>
-		<li class="list-group-item"><a href="bulletins.do">게시판 관리</a></li>
-		<li class="list-group-item"><a href="recruits.do">모집공고 관리</a></li>
-		
-		
-		<li class="list-group-item"><a href="members.do">전체회원</a></li>
-		<li class="list-group-item"><a href="BizMems.do">기업회원</a></li>
-		<li class="list-group-item"><a href="NomalMems.do">일반회원</a></li> 
-		<li class="list-group-item"><a href="BanMems.do">활동정지회원</a></li> 
-		<li class="list-group-item"><a href="Managers.do">관리자</a></li> 
-		
 
-		<li class="list-group-item"><a href="#none">프로필 관리</a></li>
-		<li class="list-group-item"><a href="qnalist.do">Q&A</a></li>
-		<li class="list-group-item"><a href="hoewonQ.do">회원문의</a></li>
-		<li class="list-group-item"><a href="gongoQ.do">공고문의</a></li>
-		<li class="list-group-item"><a href="orewQ.do">오류신고</a></li>
-		<li class="list-group-item"><a href="ansComplete.do">답변완료</a></li>
-	</ul>
-	 -->
 	  <div class="container">
       <div class="row">
         <div class="col-12">
@@ -61,7 +40,7 @@ response.sendRedirect("login.do");
           <div class="list-group">
             <a href="bulletins.do" class="list-group-item list-group-item-action">게시판 관리</a>          
             <a href="recruits.do" class="list-group-item list-group-item-action">모집공고 관리</a>          
-            <a href="#none" class="list-group-item list-group-item-action">프로필 관리</a>          
+            <a href="pps.do" class="list-group-item list-group-item-action">프로필 관리</a>          
           </div>
         
 

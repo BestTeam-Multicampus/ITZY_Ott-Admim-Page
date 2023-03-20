@@ -16,8 +16,8 @@ public class MemoServiceImpl implements MemoService {
 	MemoDao dao;
 	
 	@Override
-	public List<MemoDto> myMemo() {
-		return dao.myMemo();
+	public List<MemoDto> myMemo(String id) {
+		return dao.myMemo(id);
 	}
 
 	@Override

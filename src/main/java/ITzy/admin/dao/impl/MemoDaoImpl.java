@@ -18,8 +18,8 @@ public class MemoDaoImpl implements MemoDao {
 	String ns = "Memo.";
 
 	@Override
-	public List<MemoDto> myMemo() {
-		return session.selectList(ns+"myMemo");
+	public List<MemoDto> myMemo(String id) {
+		return session.selectList(ns+"myMemo",id);
 	}
 
 	@Override

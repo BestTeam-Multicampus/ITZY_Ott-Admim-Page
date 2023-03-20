@@ -203,16 +203,54 @@ if(addAns != null && !addAns.equals("")){
 	if(addAns.equals("YES")){
 		%>
 		<script type="text/javascript">
-		alert("연락처가 성공적으로 수정되었습니다");
+		alert("답변이 추가되었습니다");
 		</script>
 		<%
 		response.sendRedirect(go+".do");		
 	} else{
 		%>
 		<script type="text/javascript">
-		alert("수정 실패");
+		alert("답변 실패");
 		</script>
 <%		response.sendRedirect(go+".do");
+	}
+}
+
+/* ***** pps ***** */
+//사용	
+String delPps = (String)request.getAttribute("delPps");
+if(delPps != null && !delPps.equals("")){
+	if(delPps.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("숨김처리 되었습니다");
+		</script>
+		<%
+		response.sendRedirect("pps.do");		
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("실패");
+		</script>
+<%		response.sendRedirect("pps.do");
+	}
+}
+//사용	
+String showPps = (String)request.getAttribute("showPps");
+if(showPps != null && !showPps.equals("")){
+	if(showPps.equals("YES")){
+		%>
+		<script type="text/javascript">
+		alert("숨김처리 되었습니다");
+		</script>
+		<%
+		response.sendRedirect("pps.do");		
+	} else{
+		%>
+		<script type="text/javascript">
+		alert("실패");
+		</script>
+<%		response.sendRedirect("pps.do");
 	}
 }
 

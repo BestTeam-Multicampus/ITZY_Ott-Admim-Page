@@ -1,3 +1,4 @@
+<%@page import="ITzy.admin.dto.PpsDto"%>
 <%@page import="ITzy.admin.dto.QnaDto"%>
 <%@page import="ITzy.admin.dto.MemberDto"%>
 <%@page import="java.util.List"%>
@@ -67,6 +68,27 @@ response.sendRedirect("login.do");
 	text-align: center;
 }
 
+.popUpdate2 {
+	position: absolute;
+	z-index: 1;
+
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+.popUpdate2>article {
+	width: 500px;
+	height: 500px;
+	position: relative;
+	z-index: 2;
+	background: white;
+	box-shadow: 3px 3px 5px black;
+	margin: auto;
+	cursor: pointer;
+	text-align: center;
+}
+
 .black { 
 background:rgba(0,0,0,0.001);
 width: 60%;
@@ -90,9 +112,9 @@ option[value=""][disabled] {
 <body>
 
 	<%
-List<QnaDto> list = (List<QnaDto>) request.getAttribute("qna");
-String go = (String)request.getAttribute("go");
+List<PpsDto> list = (List<PpsDto>) request.getAttribute("pps");
 String type = (String)request.getAttribute("type");
+String go = (String)request.getAttribute("go");
 	
 %>
 	<h1><%= type %></h1>
@@ -101,19 +123,20 @@ String type = (String)request.getAttribute("type");
 	<div class="container">
 		<table id="ListTable" class="table table-hover">
 			<col width="10%">
-			<col width="10%">
 			<col width="35%">
 			<col width="20%">
-			<col width="12%">
-			<col width="13%">
+			<col width="10%">
+			<col width="10%">
+			<col width="15%">
 	
 			<tr>
-				<th>글번호</th>
 				<th>아이디</th>
-				<th>제목</th>
+				<th>포트폴리오 제목</th>
 				<th>작성일</th>
-				<th>답변등록</th>
-				<th>답변시간</th>
+				<th>숨김처리</th>
+				<th>노출처리</th>
+				<th>노출상태</th>
+				
 			
 			
 			</tr>
@@ -121,50 +144,45 @@ String type = (String)request.getAttribute("type");
 			<%
 		for (int i = 0; i < list.size(); i++) {
 	
-			QnaDto dto = list.get(i);
+			PpsDto dto = list.get(i);
 			String s = Integer.toString(i);
+			String id = dto.getId();
 		%>
 			<tr>
-				<td><b><%=dto.getSeq()%></b></td>
-				<td><%=dto.getId()%></td>
+				<td><b><%=dto.getId()%></b></td>
 				<td><%=dto.getTitle()%></td>
-				<td><%=dto.getWdate()%></td>
+				<td><%=dto.getRegdate()%></td>
 			
 				<td>
-					<button class="btn btn-primary btn-sm" id=ansUpdate<%= s %> >답변등록</button>
+					<button class="btn btn-danger btn-sm" id=ppsUpdate<%= s %> >숨김</button>
 				</td>
-				
-				<% if(dto.getAnsdate() != null){ %>
-				<td><%= dto.getAnsdate() %></td>
-				<%}else{ %>
-				<td></td>
-				<%} %>			
 			
-			</tr>
-
+				<td>
+					<button class="btn btn-primary btn-sm" id=ppsUpdate2<%= s %> >노출</button>
+				</td>
+			
+			
+			<% if(dto.getDel() == 0){ %>
+				<td><span style="color: blue">정상노출</span></td>
+				<%}else{ %>
+				<td><span style="color: red">숨김처리</span></td>
+				<%} %>	
+</tr>
+			
 			<div class=popUpdate id=popUpdate<%= s %>>
 				<article>
 				<br>
-				<h3>답변등록</h3>
+				<h3>포트폴리오 숨김처리</h3>
 				<h4>아이디 : <%= dto.getId() %> 님</h4>						
 				<br>
-			<textarea  id=answer name=answer style="width:90%; height:110px; resize: none;" readonly="readonly">
+			<textarea style="width:90%; height:110px; resize: none;" readonly="readonly">
 				<%= dto.getContent() %>
 		</textarea>
-					<form action="addAns.do" method="post" id=frm<%= s %>>
-						<input type="hidden" name=seq value="<%=dto.getSeq()%>">
-						<input type="hidden" name=mngid value="<%=login.getId()%>">
-						<input type="hidden" name=go value="<%=go%>"> 
-						
-						<% if(dto.getAnsdate() != null){ %>
-						<textarea  id=answer<%= s %>  name=answer style="width:90%; height:160px; resize: none;" placeholder="<%= dto.getAnswer() %>"></textarea>
-						<%}else{ %>
-						<textarea  id=answer<%= s %>  name=answer style="width:90%; height:160px; resize: none;"></textarea>
-						<%} %>		
-					
+					<form action="delPps.do" method="post" id=frm<%= s %>>
+						<input type="hidden" name=seq value="<%=dto.getSeq()%>"> 				
 						<br>
-						<button type="button" id=Btn<%=s%>
-							class="btn btn-success btn-sm">답변등록</button>
+						<button type="submit" id=Btn<%=s%>
+							class="btn btn-success btn-sm">이 프로필 숨김처리하기</button>
 					</form>
 
 					<br>		
@@ -177,7 +195,7 @@ String type = (String)request.getAttribute("type");
 				
 			
 				$(document).ready(function() {
-					$("#ansUpdate"+<%= s %>+":first-of-type").click(function() {
+					$("#ppsUpdate"+<%= s %>+":first-of-type").click(function() {
 						$("#popUpdate"+<%= s %>).fadeIn();
 						$("#popUpdate"+<%= s %>).addClass("black");
 					});
@@ -188,18 +206,48 @@ String type = (String)request.getAttribute("type");
 				});
 
 				
-				$(document).ready(function() {
-					$("#Btn"+<%=s%>).click(function() {
+			</script>
+			
+	 					
+			<div class=popUpdate2 id=popUpdate2<%= s %>>
+				<article>
+				<br>
+				<h3>포트폴리오 노출처리</h3>
+				<h4>아이디 : <%= dto.getId() %> 님</h4>						
+				<br>
+			<textarea style="width:90%; height:110px; resize: none;" readonly="readonly">
+				<%= dto.getContent() %>
+		</textarea>
+					<form action="showPps.do" method="post" id=frm<%= s %>>
+						<input type="hidden" name=seq value="<%=dto.getSeq()%>"> 				
+						<br>
+						<button type="submit" id=Btn2<%=s%>
+							class="btn btn-success btn-sm">이 프로필 노출처리하기</button>
+					</form>
 
-						if ($("#answer"+<%= s %>).val().trim() == "") {
-							alert("답변을 기입해 주십시오");					
-						} else {
-							$("#frm"+<%= s %>).submit();
-						}
+					<br>		
+				<br>	
+					<button class="btn btn-secondary btn-sm" id=popclose2<%= s %> >창닫기</button>
+				</article>
+			</div>	
+		
+				<script type="text/javascript">
+				
+			
+				$(document).ready(function() {
+					$("#ppsUpdate2"+<%= s %>+":first-of-type").click(function() {
+						$("#popUpdate2"+<%= s %>).fadeIn();
+						$("#popUpdate2"+<%= s %>).addClass("black");
+					});
+					$("#popclose2"+<%= s %>).click(function() {
+						$("#popUpdate2"+<%= s %>).parent().fadeOut();
+						location.reload();
 					});
 				});
+
+				
 			</script>
-								
+							
 		
 
 			<%

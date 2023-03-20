@@ -55,7 +55,14 @@
 	<definition name="Managers" extends="main">
 		<put-attribute name="content" value="/WEB-INF/views/main/members.jsp" />
 	</definition>
-
+	
+	
+	<!--  -->
+	
+	<definition name="pps" extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/pps/pps.jsp" />
+	</definition>
+	
 	<definition name="bulletins"  extends="main">
 		<put-attribute name="content" value="/WEB-INF/views/main/bulletins.jsp" />
 	</definition>
@@ -65,7 +72,7 @@
 	</definition>
 	
 	
-	
+	<!--  -->
 	<definition name="qnalist"  extends="main">
 		<put-attribute name="content" value="/WEB-INF/views/qna/qnalist.jsp" />
 	</definition>

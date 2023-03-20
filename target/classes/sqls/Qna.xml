@@ -45,28 +45,5 @@
 
 	</update>
 
-<!-- 
-	<select id="myQna" parameterType="java.lang.String"  resultType="ITzy.admin.dto.QnaDto">
-		select seq, ref, id, qtype, title, content, wdate, mngid, answer, ansdate 
-		from qna where id=#{id} order by wdate desc
-	</select>
 
-	<insert id="addQna" parameterType="ITzy.admin.dto.QnaDto">
-
-		insert into qna(id, qtype, title, content,wdate)
-		values(#{id},#{qtype},#{title},#{content}, now());
-
-	</insert>
-
-	<select id="findQna" parameterType="Integer"  resultType="ITzy.admin.dto.QnaDto">
-		select seq, ref, id, qtype, title, content, wdate, mngid, answer, ansdate
-		from qna where seq=#{seq}
-	</select>
-	
-	<select id="ansQna" parameterType="Integer"  resultType="ITzy.admin.dto.QnaDto">
-		select answer, ansdate 
-		from qna where ref=#{seq}
-	</select>
-
- -->
 </mapper>
