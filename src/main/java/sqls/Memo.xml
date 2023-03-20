@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Memo">
+
+<!-- 개인별 메모리스트  -->
+	<select id="myMemo" resultType="ITzy.admin.dto.MemoDto">
+	select id, memo, wdate
+	from memo order by wdate asc;
+	</select>
+	
+	<insert id="addMemo" parameterType="ITzy.admin.dto.MemoDto">
+	insert memo(id, memo, wdate)
+	values(#{id},#{memo},now());
+	</insert>
+	
+	<delete id="delMemo" parameterType="ITzy.admin.dto.MemoDto">
+	delete from memo where seq=#{seq};
+	</delete>
+
+
+
+</mapper>

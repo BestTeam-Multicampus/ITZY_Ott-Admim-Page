@@ -55,7 +55,6 @@ a:hover {
 }
 
 .menu {
-	padding-top: 3%; 
 	float : left;
 	height: 100%;
 	width: 15%;
