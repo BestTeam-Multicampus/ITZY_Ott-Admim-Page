@@ -54,7 +54,7 @@ a:hover {
 .menu {
 	float : left;
 	height: 100%;
-	width: 15%;
+	width: 20%;
 	float: left;
 	/* background-color: gray; */
 }
@@ -62,15 +62,10 @@ a:hover {
 .content {
 	float: left;
 	height: 100%;
-	width: 60%;
+	width: 80%;
 	
 }
 
-.memo {
-	float: left;
-	height: 100%;
-	width: 25%;
-	padding-left: 2em;}
 
 .float {
 	position: fixed;
@@ -100,9 +95,6 @@ a:hover {
 		</div>
 		<div class="content">
 			<tiles:insertAttribute name="content" />
-		</div>
-		<div class="memo">
-			<tiles:insertAttribute name="memo" />
 		</div>
 	</div>
 

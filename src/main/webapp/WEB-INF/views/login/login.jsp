@@ -19,6 +19,10 @@
 <script src="http://lab.alexcican.com/set_cookies/cookie.js" type="text/javascript"></script>
 
 <style type="text/css">
+body{
+background-color: #2E304D;
+}
+
 .divider:after, .divider:before {
 	content: "";
 	flex: 1;
@@ -45,7 +49,7 @@
 		<div class="container-fluid h-custom">
 			<div class="row d-flex justify-content-center align-items-center h-100">
 
-				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="margin: auto;">
+				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="margin: auto; background-color: white; border-radius: 2em;">
 					<form action="loginAf.do" method="post">
 						
 						<div class="divider d-flex align-items-center my-4">
@@ -53,7 +57,7 @@
 						</div>
 						
 						<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-							<p style="margin: auto; font-size:larger; ">OTT ADMIN PAGE LOGIN</p>
+							<p style="margin: auto; font-size:larger "><b>OTT ADMIN PAGE LOGIN</b></p>
 						</div>
 						<br>
 
@@ -70,8 +74,9 @@
 						<div class="text-center text-lg-start mt-4 pt-2">
 							<button type="submit" class="btn btn-outline-secondary" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
 							<p class="small fw-bold mt-2 pt-1 mb-0">
-								<a href="regi.do" class="link-danger">신규 관리자 등록</a>
+								<a href="regi.do" class="link-danger"><b>신규 관리자 등록</b></a>
 							</p>
+							<br>
 						</div>
 					</form>
 

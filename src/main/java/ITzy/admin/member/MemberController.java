@@ -160,7 +160,7 @@ public class MemberController {
 		String msg ="";
 		if (mem != null) {
 			req.getSession().setAttribute("login", mem);
-			req.getSession().setMaxInactiveInterval(1800);//세션 기본 30분
+			req.getSession().setMaxInactiveInterval(7200);//세션 기본 30분, 개발위해 7200초 임시설정
 			msg = "LOGIN_OK"; 
 			System.out.println();
 		}else {

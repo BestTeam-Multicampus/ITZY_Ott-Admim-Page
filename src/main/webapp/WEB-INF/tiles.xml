@@ -8,8 +8,7 @@
 		<put-attribute name="logo" value="/WEB-INF/views/logo.jsp" />
 		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
  		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
- 		<put-attribute name="content" value="" />
- 		<put-attribute name="memo" value="/WEB-INF/views/memo.jsp" />
+ 		<put-attribute name="content" value="" /> 
 	</definition>
 	
 	
@@ -67,8 +66,8 @@
 		<put-attribute name="content" value="/WEB-INF/views/main/bulletins.jsp" />
 	</definition>
 
-	<definition name="recruits"  extends="main">
-		<put-attribute name="content" value="/WEB-INF/views/main/recruits.jsp" />
+	<definition name="nbs"  extends="main">
+		<put-attribute name="content" value="/WEB-INF/views/pps/nbs.jsp" />
 	</definition>
 	
 	

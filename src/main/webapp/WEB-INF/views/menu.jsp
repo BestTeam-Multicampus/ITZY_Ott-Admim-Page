@@ -39,7 +39,7 @@ response.sendRedirect("login.do");
      
           <div class="list-group">
             <a href="bulletins.do" class="list-group-item list-group-item-action">게시판 관리</a>          
-            <a href="recruits.do" class="list-group-item list-group-item-action">모집공고 관리</a>          
+            <a href="nbs.do" class="list-group-item list-group-item-action">모집공고 관리</a>          
             <a href="pps.do" class="list-group-item list-group-item-action">프로필 관리</a>          
           </div>
         

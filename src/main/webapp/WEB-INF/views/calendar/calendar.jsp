@@ -128,13 +128,13 @@ if (login == null) {
 
 <h1>일정관리</h1>
 
-<caption>
+<div align="center">
 	<a href="calendar.do?year=<%=year-1 %>&month=<%=month %>"><img alt="" src="./images/left.gif" width="20px" height="20px"/></a>
 	<a href="calendar.do?year=<%=year %>&month=<%=month-1 %>"><img alt="" src="./images/prec.gif"  width="20px" height="20px"/></a>
 	 <span> <%=year %>년<%=month %>월</span>  
 	<a href="calendar.do?year=<%=year %>&month=<%=month+1 %>"><img alt="" src="./images/next.gif"  width="20px" height="20px"/></a>
 	<a href="calendar.do?year=<%=year+1 %>&month=<%=month %>"><img alt="" src="./images/last.gif"  width="20px" height="20px"/></a>	
-</caption>
+</div>
 
 <div class="container">
 	<table  id="calendar" class="table table-striped table-bordered table-hover">
@@ -161,7 +161,7 @@ if (login == null) {
 					<a style="color:<%=CalUtil.fontColor(dayOfWeek, i) %>" href="callist.do?year=<%=year %>&month=<%=month %>&day=<%=i %>"><%=i%></a>
 					
 					<a href="calwrite.do?year=<%=year %>&month=<%=month %>&day=<%=i %>">
-						<img alt="일정추가" src="./images/office-material.png" width="10px" height="10px" />
+						<img alt="일정추가" src="./images/office-material.png" width="20px" height="20px" />
 					</a>
 					<div class="viewcls"><%= getCalView(i, vlist) %></div>
 					
