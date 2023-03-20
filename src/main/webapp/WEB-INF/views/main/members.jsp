@@ -137,6 +137,16 @@ String title = (String)request.getAttribute("title");
 				<th>상태변경</th>
 			</tr>
 
+
+
+			<%
+			if(list.isEmpty()){ %>
+			<tr>
+			<td colspan="8"> 게시글이 없습니다</td>
+			</tr>
+			<%	
+			}else{
+			 %>
 			<%
 		for (int i = 0; i < list.size(); i++) {
 	
@@ -283,6 +293,7 @@ String title = (String)request.getAttribute("title");
 		
 
 			<%
+		}
 		} %>
 
 		</table>

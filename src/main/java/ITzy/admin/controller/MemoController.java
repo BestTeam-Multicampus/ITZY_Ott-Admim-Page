@@ -29,6 +29,7 @@ public class MemoController {
 		
 		List<MemoDto> memo = service.myMemo(id);
 		model.addAttribute("memo", memo);
+		System.out.println(memo);
 		
 		return "memo";
 	}

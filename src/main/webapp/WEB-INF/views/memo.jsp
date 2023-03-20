@@ -36,11 +36,19 @@ List<MemoDto> list = (List<MemoDto>) request.getAttribute("memo");
 	<tr>
 		<th>메모</th>		
 		<th>날짜</th>
-		<th>삭제</th>
-		
+		<th>삭제</th>		
 	</tr>
-<%-- 
-<%
+<%-- 	
+	
+	<%
+			if(list.isEmpty()){ %>
+			<tr>
+			<td colspan="3"> 메모가 없습니다</td>
+			</tr>
+			<%	
+			}else{
+			 %>
+			<%
 		for (int i = 0; i < list.size(); i++) {
 	
 			MemoDto dto = list.get(i);
@@ -53,7 +61,7 @@ List<MemoDto> list = (List<MemoDto>) request.getAttribute("memo");
 		<td><%= dto.getWdate()%></td>
 		<td><button type="button" id=Btn<%=s%> class="btn btn-default btn-sm">삭제하기</button></td>
 	
-	</tr>
+	
 	
 	 <script type="text/javascript">
 
@@ -61,24 +69,32 @@ List<MemoDto> list = (List<MemoDto>) request.getAttribute("memo");
 	$(document).ready(function() {
 		$("#Btn"+<%=s%>).click(function() {
 
-			if ($("#answer"+<%= s %>).val().trim() == "") {
+			if ($("#answer"+<%=s %>).val().trim() == "") {
 				alert("답변을 기입해 주십시오");					
 			} else {
-				$("#frm"+<%= s %>).submit();
+				$("#frm"+<%=s %>).submit();
 			}
 		});
 	});
 </script>
 	
-			<%
+	</tr>		
+	<%
+		}
 		} %>
+		<tr>
+		<form>
+		<input type="hidden" name=id value="<%=login.getId()%>">
+		<td colspan="2">
+		<input type="text" id=memo name=memo>
+		<button type="submit"> 저장 </button>
+		</form>
+		</td>
+		</tr>
+		
  --%>
 </table>
 
 </div>
-<!-- 
-<div>
-	<button type="button" class="btn btn-default" 
-		onclick="location.href='/spring/add.memo';">메모쓰기</button>
-</div> -->
+
 

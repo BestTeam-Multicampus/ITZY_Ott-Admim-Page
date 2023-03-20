@@ -119,6 +119,14 @@ String type = (String)request.getAttribute("type");
 			</tr>
 
 			<%
+			if(list.isEmpty()){ %>
+			<tr>
+			<td colspan="6"> 게시글이 없습니다</td>
+			</tr>
+			<%	
+			}else{
+			 %>
+			<%
 		for (int i = 0; i < list.size(); i++) {
 	
 			QnaDto dto = list.get(i);
@@ -203,6 +211,7 @@ String type = (String)request.getAttribute("type");
 		
 
 			<%
+		}
 		} %>
 
 		</table>

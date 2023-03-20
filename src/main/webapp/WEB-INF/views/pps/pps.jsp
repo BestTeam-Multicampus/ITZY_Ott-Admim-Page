@@ -131,7 +131,7 @@ String go = (String)request.getAttribute("go");
 	
 			<tr>
 				<th>아이디</th>
-				<th>포트폴리오 제목</th>
+				<th>제목</th>
 				<th>작성일</th>
 				<th>숨김처리</th>
 				<th>노출처리</th>
@@ -182,7 +182,7 @@ String go = (String)request.getAttribute("go");
 						<input type="hidden" name=seq value="<%=dto.getSeq()%>"> 				
 						<br>
 						<button type="submit" id=Btn<%=s%>
-							class="btn btn-success btn-sm">이 프로필 숨김처리하기</button>
+							class="btn btn-success btn-sm">페이지에서 숨김처리하기</button>
 					</form>
 
 					<br>		
@@ -222,7 +222,7 @@ String go = (String)request.getAttribute("go");
 						<input type="hidden" name=seq value="<%=dto.getSeq()%>"> 				
 						<br>
 						<button type="submit" id=Btn2<%=s%>
-							class="btn btn-success btn-sm">이 프로필 노출처리하기</button>
+							class="btn btn-success btn-sm">페이지에서 노출처리하기</button>
 					</form>
 
 					<br>		
