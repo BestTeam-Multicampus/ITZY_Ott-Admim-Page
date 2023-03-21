@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ITzy.admin.dto.BbsDto;
@@ -33,15 +34,83 @@ public class MemberController {
 //		System.out.println("MemberController regi " + new Date());
 		return "login/regi";
 	}
+	
+/*	
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public String main() {
 //		System.out.println("MemberController main " + new Date());
 		return "main";
 	}
+*/	
+	
 	@RequestMapping(value = "members.do", method = RequestMethod.GET)
-	public String members() {
+	public String members(Model model) {
 //		System.out.println("MemberController members " + new Date());
+		String go = "members";
+		model.addAttribute("go",go);
+		
+		String title = "전체회원";
+		model.addAttribute("title",title);
+		
+		List<MemberDto> list = service.allMember();
+		model.addAttribute("allmem", list);
 		return "members";
+	}
+	
+	@RequestMapping(value = "BizMems.do", method = RequestMethod.GET)
+	public String BizMems(Model model) {
+//		System.out.println("MemberController BizMems " + new Date());
+		String go = "BizMems";
+		model.addAttribute("go",go);
+		
+		String title = "기업회원";
+		model.addAttribute("title",title);
+		
+		List<MemberDto> list = service.BizMems();
+		model.addAttribute("allmem", list);
+		return "BizMems";
+	}
+	
+	@RequestMapping(value = "NomalMems.do", method = RequestMethod.GET)
+	public String NomalMems(Model model) {
+//		System.out.println("MemberController NomalMems " + new Date());
+		String go = "NomalMems";
+		model.addAttribute("go",go);
+		
+		String title = "일반회원";
+		model.addAttribute("title",title);
+		
+		List<MemberDto> list = service.NomalMems();
+		model.addAttribute("allmem", list);
+		return "NomalMems";
+	}
+	
+	@RequestMapping(value = "BanMems.do", method = RequestMethod.GET)
+	public String BanMems(Model model) {
+//		System.out.println("MemberController BanMems " + new Date());
+		String go = "BanMems";
+		model.addAttribute("go",go);
+		
+		String title = "활동정지";
+		model.addAttribute("title",title);
+		
+		List<MemberDto> list = service.BanMems();
+		model.addAttribute("allmem", list);
+		return "BanMems";
+	}
+	
+	@RequestMapping(value = "Managers.do", method = RequestMethod.GET)
+	public String Managers(Model model) {
+//		System.out.println("MemberController Managers " + new Date());
+		String go = "Managers";
+		model.addAttribute("go",go);
+		
+		String title = "관리자";
+		model.addAttribute("title",title);
+		
+		List<MemberDto> list = service.Managers();
+		model.addAttribute("allmem", list);
+		return "Managers";
 	}
 	
 	@RequestMapping(value = "bulletins.do", method = RequestMethod.GET)
@@ -91,7 +160,7 @@ public class MemberController {
 		String msg ="";
 		if (mem != null) {
 			req.getSession().setAttribute("login", mem);
-			req.getSession().setMaxInactiveInterval(1800);//세션 기본 30분
+			req.getSession().setMaxInactiveInterval(7200);//세션 기본 30분, 개발위해 7200초 임시설정
 			msg = "LOGIN_OK"; 
 			System.out.println();
 		}else {
@@ -105,9 +174,75 @@ public class MemberController {
 	
 	// session check
 	@RequestMapping(value = "sessionOut.do", method = RequestMethod.GET)
-	public String sessionOut(Model model) {
+	public String sessionOut(HttpServletRequest req,Model model) {
+		req.removeAttribute("login");
 		String sessionOut = "logout";
 		model.addAttribute("sessionOut", sessionOut);
 		return "message";
 	}
+	
+	
+	@RequestMapping(value = "modifyName.do", method = RequestMethod.POST)
+	public String modifyName(MemberDto dto,Model model,@RequestParam String go) {
+//		System.out.println("MemberController modifyName " + new Date());
+		String msg ="";
+		boolean isS = service.modifyName(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("go",go);
+		model.addAttribute("modifyName",msg);
+		
+		return "message";		
+	}	
+	
+	@RequestMapping(value = "modifyEmail.do", method = RequestMethod.POST)
+	public String modifyEmail(MemberDto dto,Model model,@RequestParam String go) {
+//		System.out.println("MemberController modifyEmail " + new Date());
+		String msg ="";
+		boolean isS = service.modifyEmail(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("go",go);
+		model.addAttribute("modifyEmail",msg);
+		return "message";		
+	}	
+	
+	@RequestMapping(value = "modifyContact.do", method = RequestMethod.POST)
+	public String modifyContact(MemberDto dto,Model model,@RequestParam String go) {
+//		System.out.println("MemberController modifyContact " + new Date());
+		String msg ="";
+		boolean isS = service.modifyContact(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("go",go);
+		model.addAttribute("modifyContact",msg);
+		return "message";		
+	}	
+	
+	
+	@RequestMapping(value = "modifyAuth.do", method = RequestMethod.POST)
+	public String modifyAuth(MemberDto dto,Model model,@RequestParam String go) {
+//		System.out.println("MemberController modifyContact " + new Date());
+		String msg ="";
+		boolean isS = service.modifyAuth(dto);
+		if(isS) {
+			msg = "YES";		// 변경성공
+		}else {
+			msg = "NO"; 		// 변경실패
+		}
+		model.addAttribute("go",go);
+		model.addAttribute("modifyAuth",msg);
+		return "message";		
+	}	
+	
+	
 }

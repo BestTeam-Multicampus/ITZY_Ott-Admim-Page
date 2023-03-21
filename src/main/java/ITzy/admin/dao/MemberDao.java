@@ -9,4 +9,14 @@ public interface MemberDao {
 	int idCheck(String id);
 	int addMember(MemberDto dto);
 	MemberDto login(MemberDto dto);
+	int modifyName(MemberDto dto);
+	int modifyEmail(MemberDto dto);
+	int modifyContact(MemberDto dto);
+	int modifyAuth(MemberDto dto);
+	
+	List<MemberDto> BizMems();
+	List<MemberDto> NomalMems();
+	List<MemberDto> BanMems();
+	List<MemberDto> Managers();
+	
 }

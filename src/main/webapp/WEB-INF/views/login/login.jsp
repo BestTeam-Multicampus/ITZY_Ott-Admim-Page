@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Insert title here</title>
+<title>OTT admin page</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
@@ -19,6 +19,10 @@
 <script src="http://lab.alexcican.com/set_cookies/cookie.js" type="text/javascript"></script>
 
 <style type="text/css">
+body{
+background-color: #2E304D;
+}
+
 .divider:after, .divider:before {
 	content: "";
 	flex: 1;
@@ -27,7 +31,7 @@
 }
 
 .h-custom {
-	height: calc(100% - 73px);
+	height: calc(100% - 60px);
 }
 
 @media ( max-width : 450px) {
@@ -45,31 +49,34 @@
 		<div class="container-fluid h-custom">
 			<div class="row d-flex justify-content-center align-items-center h-100">
 
-				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="margin: auto; background-color: white; border-radius: 2em;">
 					<form action="loginAf.do" method="post">
-						<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-							<p class="lead fw-normal mb-0 me-3">OTT ADMIN PAGE LOGIN</p>
-						</div>
-
+						
 						<div class="divider d-flex align-items-center my-4">
-							<p class="text-center fw-bold mx-3 mb-0">Or</p>
+							<img alt="img" src="./images/logo.png?v=1" width="150px" height="150px">
 						</div>
+						
+						<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+							<p style="margin: auto; font-size:larger "><b>OTT ADMIN PAGE LOGIN</b></p>
+						</div>
+						<br>
 
 						<!-- id input -->
 						<div class="form-outline mb-4">
-							<input type="text" id="id" name="id" class="form-control form-control-lg" placeholder="Enter a valid id" /> <label class="form-label" for="form3Example3">Id</label>
+							ID <input type="text" id="id" name="id" class="form-control form-control-lg" placeholder="아이디" />
 						</div>
 
 						<!-- Password input -->
 						<div class="form-outline mb-3">
-							<input type="password" id="pwd" name="pwd" class="form-control form-control-lg" placeholder="Enter password" /> <label class="form-label" for="form3Example4">Password</label>
+							PASSWORD<input type="password" id="pwd" name="pwd" class="form-control form-control-lg" placeholder="비밀번호" />
 						</div>
 
 						<div class="text-center text-lg-start mt-4 pt-2">
-							<button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+							<button type="submit" class="btn btn-warning btn-block" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
 							<p class="small fw-bold mt-2 pt-1 mb-0">
-								<a href="regi.do" class="link-danger">신규 관리자 등록</a>
+								<a href="regi.do" class="link-danger"><b>신규 관리자 등록</b></a>
 							</p>
+							<br>
 						</div>
 					</form>
 

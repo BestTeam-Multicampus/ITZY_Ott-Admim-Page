@@ -26,6 +26,19 @@ public class MemberDaoImpl implements MemberDao{
 //		return session.selectList("Member." + "allMember");
 		return session.selectList("Member.allMember");
 	}
+	@Override
+	public List<MemberDto> BanMems() {
+		return session.selectList("Member.BanMems");
+	}@Override
+	public List<MemberDto> BizMems() {
+		return session.selectList("Member.BizMems");
+	}@Override
+	public List<MemberDto> Managers() {
+		return session.selectList("Member.Managers");
+	}@Override
+	public List<MemberDto> NomalMems() {
+		return session.selectList("Member.NomalMems");
+	}
 
 
 	@Override
@@ -39,11 +52,28 @@ public class MemberDaoImpl implements MemberDao{
 		return session.insert(ns +"addmember", dto);
 	}
 
-
 	@Override
 	public MemberDto login(MemberDto dto) {
 		MemberDto mem = session.selectOne(ns + "login", dto);
 		return mem;
 	}
+	@Override
+	public int modifyName(MemberDto dto) {
+		return session.update(ns + "modifyName", dto);
+	}
 	
+	@Override
+	public int modifyContact(MemberDto dto) {
+		return session.update(ns + "modifyContact", dto);
+	}
+	
+	@Override
+	public int modifyEmail(MemberDto dto) {
+		return session.update(ns + "modifyEmail", dto);
+	}
+	
+	@Override
+	public int modifyAuth(MemberDto dto) {
+		return session.update(ns + "modifyAuth", dto);
+	}
 }
