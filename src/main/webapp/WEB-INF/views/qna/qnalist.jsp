@@ -26,10 +26,14 @@ response.sendRedirect("login.do");
 %>
 
 <style>
+textarea {
+	text-align: left;
+}
+
 .container {
 	width: 100%;
 	height: 600px;
-	overflow-y:auto; 
+	overflow-y: auto;
 }
 
 #ListTable {
@@ -45,11 +49,9 @@ response.sendRedirect("login.do");
 	background-color: #F0F0F0;
 }
 
-
 .popUpdate {
 	position: absolute;
 	z-index: 1;
-
 	width: 100%;
 	height: 100%;
 	display: none;
@@ -67,24 +69,27 @@ response.sendRedirect("login.do");
 	text-align: center;
 }
 
-.black { 
-background:rgba(0,0,0,0.001);
-width: 60%;
-height:100%;
- }
+.black {
+	background: rgba(0, 0, 0, 0.001);
+	width: 60%;
+	height: 100%;
+}
 
-select{
-  border:1px solid #c8c8c8;
-  padding: 5px 10px;
+select {
+	border: 1px solid #c8c8c8;
+	padding: 5px 10px;
 }
+
 option {
-  color:#111;
+	color: #111;
 }
+
 select:required:invalid {
-   color: #909090;
+	color: #909090;
 }
+
 option[value=""][disabled] {
-  display:none
+	display: none
 }
 </style>
 <body>
@@ -165,7 +170,7 @@ String type = (String)request.getAttribute("type");
 						<input type="hidden" name=go value="<%=go%>"> 
 						
 						<% if(dto.getAnsdate() != null){ %>
-						<textarea  id=answer<%= s %>  name=answer style="width:90%; height:160px; resize: none;" placeholder="<%= dto.getAnswer() %>"></textarea>
+						<textarea id=answer<%= s %>  name=answer style="width:90%; height:160px; resize: none;" placeholder="<%= dto.getAnswer() %>"></textarea>
 						<%}else{ %>
 						<textarea  id=answer<%= s %>  name=answer style="width:90%; height:160px; resize: none;"></textarea>
 						<%} %>		
