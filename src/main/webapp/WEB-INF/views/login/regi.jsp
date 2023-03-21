@@ -14,82 +14,97 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <style type="text/css">
+body{
+background-color: #2E304D;
+}
+
+.divider:after, .divider:before {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: #eee;
+}
+
+.h-custom {
+	height: calc(100% - 60px);
+}
+
+@media ( max-width : 450px) {
+	.h-custom {
+		height: 100%;
+	}
+}
 </style>
 
 </head>
 <body>
 
-	<section class="vh-100" style="width: 500px; margin: auto; margin-top: 5%;">
-		<form action="regiAf.do" method="post" id="regiForm">
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-user"></i>
-					</span>
+	<section class="vh-100" >
+
+		<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="margin: auto; background-color: white; border-radius: 2em;">
+			<form action="regiAf.do" method="post" id="regiForm">
+				
+				<div class="divider d-flex align-items-center my-4">
+							<img alt="img" src="./images/logo.png?v=1" width="150px" height="150px">
 				</div>
-				<input id="id" name="id" class="form-control" placeholder="로그인 아이디" type="text">
-				<button type="button" id="idChkBtn" class="btn btn-danger">id check</button>
-			</div>
-			<p id="idcheck" style="margin-left: 10px;"></p>
-
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-user"></i>
-					</span>
+				
+				<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+							<p style="margin: auto; font-size:larger "><b>OTT ADMIN MEMBER REGISTRATION</b></p>
 				</div>
-				<input id="name" name="name" class="form-control" placeholder="이름" type="text">
-			</div>
-
-			<input id="company" name="company" value="OTT" type="hidden">
-
-			<!-- form-group// -->
-
-			<p id="idcheck" style="margin-left: 10px;"></p>
-
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-envelope"></i>
-					</span>
+				<br>
+				
+				<div class="form-group input-group">
+					<input id="id" name="id" class="form-control" placeholder="로그인 아이디" type="text">
+					<button type="button" id="idChkBtn" class="btn btn-info">id check</button>
 				</div>
-				<input id="email" name="email" class="form-control" placeholder="이메일주소" type="email">
-			</div>
-			<!-- form-group// -->
+				<p id="idcheck" style="margin-left: 10px;"></p>
 
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-phone"></i>
-					</span>
+				<div class="form-group input-group">
+					<input id="name" name="name" class="form-control" placeholder="이름" type="text">
 				</div>
-				<input type="text" id="contact" name="contact" class="form-control" maxlength="13" placeholder=" '-' 없이 숫자만 입력해주세요" onkeyup="chk_tel(this.value,'contact')">
-			</div>
-			<!-- form-group end.// -->
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-lock"></i>
-					</span>
-				</div>
-				<input id="pw1" name="pwd" class="form-control" placeholder="비밀번호" type="password">
-			</div>
-			<!-- form-group// -->
 
-			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-lock"></i>
-					</span>
-				</div>
-				<input id="pw2" class="form-control" placeholder="비밀번호 확인" type="password">
-			</div>
-			<p id="pw_ck" style="margin-left: 10px;"></p>
-			<!-- form-group// -->
+				<input id="company" name="company" value="OTT" type="hidden">
 
-			<div class="form-group"></div>
-			<!--tab-->
-			<button type="button" id="regi1Btn" class="btn btn-primary btn-block">Create Account</button>
-			<div>
-				<p class="text-center">
-					Have an account? <a href="login.do">Log In</a>
-				</p>
-			</div>
-		</form>
+				<p id="idcheck" style="margin-left: 10px;"></p>
+
+				<div class="form-group input-group">
+					<input id="email" name="email" class="form-control"
+						placeholder="이메일주소" type="email">
+				</div>
+				<!-- form-group// -->
+
+				<div class="form-group input-group">
+					<input type="text" id="contact" name="contact" class="form-control"
+						maxlength="13" placeholder=" '-' 없이 숫자만 입력해주세요"
+						onkeyup="chk_tel(this.value,'contact')">
+				</div>
+				<!-- form-group end.// -->
+				<div class="form-group input-group">
+					<input id="pw1" name="pwd" class="form-control" placeholder="비밀번호"
+						type="password">
+				</div>
+				<!-- form-group// -->
+
+				<div class="form-group input-group">
+					<input id="pw2" class="form-control" placeholder="비밀번호 확인"
+						type="password">
+				</div>
+				<p id="pw_ck" style="margin-left: 10px;"></p>
+				<!-- form-group// -->
+
+				<div class="form-group"></div>
+				<!--tab-->
+				<button type="button" id="regi1Btn"
+					class="btn btn-warning btn-block">관리자 등록</button>
+					<br>
+				<div>
+					<p class="text-center">
+						<a href="login.do">로그인</a>
+					</p>
+				</div>
+<br>
+			</form>
+		</div>
 	</section>
 
 	<script type="text/javascript">

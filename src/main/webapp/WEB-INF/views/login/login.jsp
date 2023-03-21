@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Insert title here</title>
+<title>OTT admin page</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
@@ -72,7 +72,7 @@ background-color: #2E304D;
 						</div>
 
 						<div class="text-center text-lg-start mt-4 pt-2">
-							<button type="submit" class="btn btn-outline-secondary" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+							<button type="submit" class="btn btn-warning btn-block" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
 							<p class="small fw-bold mt-2 pt-1 mb-0">
 								<a href="regi.do" class="link-danger"><b>신규 관리자 등록</b></a>
 							</p>
