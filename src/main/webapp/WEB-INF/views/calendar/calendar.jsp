@@ -23,6 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="css/common.css"/>
 <style type="text/css">
 body {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -128,12 +130,12 @@ if (login == null) {
 
 <h1>일정관리</h1>
 
-<div align="center">
-	<a href="calendar.do?year=<%=year-1 %>&month=<%=month %>"><img alt="" src="./images/left.gif" width="20px" height="20px"/></a>
-	<a href="calendar.do?year=<%=year %>&month=<%=month-1 %>"><img alt="" src="./images/prec.gif"  width="20px" height="20px"/></a>
-	 <span> <%=year %>년<%=month %>월</span>  
-	<a href="calendar.do?year=<%=year %>&month=<%=month+1 %>"><img alt="" src="./images/next.gif"  width="20px" height="20px"/></a>
-	<a href="calendar.do?year=<%=year+1 %>&month=<%=month %>"><img alt="" src="./images/last.gif"  width="20px" height="20px"/></a>	
+<div align="center" >
+	<a href="calendar.do?year=<%=year-1 %>&month=<%=month %>"><img alt="" src="./images/left.gif" width="25px" height="20px"/></a>
+	<a href="calendar.do?year=<%=year %>&month=<%=month-1 %>"><img alt="" src="./images/prec.gif"  width="25px" height="20px"/></a>
+	 <span> &nbsp;<%=year %>년<%=month %>월</span>
+	<a href="calendar.do?year=<%=year %>&month=<%=month+1 %>"><img alt="" src="./images/next.gif"  width="25px" height="20px"/></a>
+	<a href="calendar.do?year=<%=year+1 %>&month=<%=month %>"><img alt="" src="./images/last.gif"  width="25px" height="20px"/></a>	
 </div>
 
 <div class="container">
@@ -158,10 +160,10 @@ if (login == null) {
 			for(int i=1;i<=lastDay;i++){
 			%>
 				<td>
-					<a style="color:<%=CalUtil.fontColor(dayOfWeek, i) %>" href="callist.do?year=<%=year %>&month=<%=month %>&day=<%=i %>"><%=i%></a>
+					<a style="color:<%=CalUtil.fontColor(dayOfWeek, i) %>" href="callist.do?year=<%=year %>&month=<%=month %>&day=<%=i %>"> <b><%=i%></b> </a>
 					
 					<a href="calwrite.do?year=<%=year %>&month=<%=month %>&day=<%=i %>">
-						<img alt="일정추가" src="./images/office-material.png" width="20px" height="20px" />
+						<span class="material-symbols-outlined">edit</span>
 					</a>
 					<div class="viewcls"><%= getCalView(i, vlist) %></div>
 					

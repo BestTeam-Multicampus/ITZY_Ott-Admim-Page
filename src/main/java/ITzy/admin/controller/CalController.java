@@ -98,7 +98,7 @@ public class CalController {
 		List<CalDto> list = service.calList(id, yyyyMMdd);
 		model.addAttribute("list",list);
 		
-		return "calendar/callist";
+		return "callist";
     }
 	
 	@RequestMapping(value="/calwrite.do", method= RequestMethod.GET)

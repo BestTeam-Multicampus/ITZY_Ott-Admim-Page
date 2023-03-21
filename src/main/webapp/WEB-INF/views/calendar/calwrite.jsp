@@ -18,7 +18,14 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
-
+<style>
+textarea {
+    width: 100%;
+    height: 8.25em;
+    border: none;
+    resize: none;
+  }
+</style>
 <%
 MemberDto login = (MemberDto)session.getAttribute("login");
 if(login == null){
@@ -42,10 +49,11 @@ if(login == null){
 <body>
 <h2>일정추가</h2>
 <form action="calwriteAf.do" id="frm" method="post">
-	<table class="table" border="1">
+<div align="center" style="margin-right:  10%;">
+	<table class="table table-bordered" >
 		<tr>
 			<th>아이디</th>
-			<td>
+			<td width="80%">
 				<%=login.getId() %>
 				<input type="hidden" name="id" value="<%=login.getId() %>">
 			</td>
@@ -77,7 +85,7 @@ if(login == null){
 		</tr>
 		
 	</table>
-
+</div>
 </form>
 <script type="text/javascript">
 let year = "<%=year %>";

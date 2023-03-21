@@ -183,7 +183,7 @@ String go = (String)request.getAttribute("go");
 			<div class=popUpdate id=popUpdate<%= s %>>
 				<article>
 				<br>
-				<h3>포트폴리오 숨김처리</h3>
+				<h3>게시글 숨김처리</h3>
 				<h4>아이디 : <%= dto.getId() %> 님</h4>						
 				<br>
 			<textarea style="width:90%; height:110px; resize: none;" readonly="readonly">
@@ -223,7 +223,7 @@ String go = (String)request.getAttribute("go");
 			<div class=popUpdate2 id=popUpdate2<%= s %>>
 				<article>
 				<br>
-				<h3>포트폴리오 노출처리</h3>
+				<h3>게시글 노출처리</h3>
 				<h4>아이디 : <%= dto.getId() %> 님</h4>						
 				<br>
 			<textarea style="width:90%; height:110px; resize: none;" readonly="readonly">
